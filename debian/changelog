@@ -1,0 +1,448 @@
+monit (1:5.2.4-4) unstable; urgency=low
+
+  * Use tiny debian/rules, bump up debhelper compat level
+  * Removed CHANGES.txt from monit.docs (this is a changelog already)
+  * Override init.d start/stop defaults
+  * Cleanup debian/monit.dirs
+  * Remove /var/log/monit.log in postrm script
+  * Add references to BTS in TODO.Debian
+  * Override dh_auto_configure - added argument --bindir=/usr/sbin
+  * Don't set initail delay for monit startup
+  * Quote dh_installinit params
+  * Set default $HOST to FQDN hostname (Closes: #613768)
+  * Add monit alias to /etc/aliases
+  * Add Forwarded: headers in debian/patches/
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Mon, 21 Mar 2011 15:50:39 +0300
+
+monit (1:5.2.4-3) unstable; urgency=low
+
+  * Refresh patches with --diffstat
+  * Upstream fix for SMTP protocol (original test issues both EHLO and
+    HELO, regardless of server reply).  Closes: #614984.
+  * Use @include common-* stanzas for monit PAM configuration (Thanks to
+    Paulo Ricardo Bruck)
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Wed, 16 Mar 2011 23:55:26 +0300
+
+monit (1:5.2.4-2) unstable; urgency=low
+
+  * Drop Build-Depends on quilt (not needed due to package format)
+  * Do set -e in postinst script explicitly (not in sha-bang) to make
+    lintian happy
+  * Cleanup description (thanks to lintian: description-synopsis-starts-
+    with-an-article)
+  * Update copyright year for upstream
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Fri, 04 Mar 2011 16:44:28 +0300
+
+monit (1:5.2.4-1) unstable; urgency=low
+
+  * Create & rotate /var/log/monit.log with root:adm owner and group
+    (Closes: #613764)
+  * Adopt DEP5 (Machine-readable debian/copyright format)
+  * Suggest MTA (exim4, postfix, etc)
+  * Cleanup patch 05_monitrc.patch: disable "set alert root@localhost"
+    and "set mailserver localhost"
+  * Cleanup logrotate script
+  * Add eventqueue basedir
+  * New upstream release (5.2.4).  Closes: #613770.
+  * Unfuzz 02_monit.1_debian_path.patch
+  * Added "DM-Upload-Allowed: yes" control field
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Fri, 04 Mar 2011 14:21:01 +0300
+
+monit (1:5.2.3-2) unstable; urgency=low
+
+  [ Sergey B Kirpichev ]
+  * Fix monit_not_configured () message text (see Ubuntu bug #666268)
+  * Add Vcs-* fields to debian/control
+  * Fix initscript dependencies to start after and stop before other
+    services (Closes: #606731, thanks to Joey Parrish <joey.parrish@gmail.com>)
+  * Add patch 04_LOGMASK.patch: set strict file mode creation mask for
+    logfile
+  * Allow monit to start by default, provide minimal monitrc file
+    (Closes: #583132, thanks to Thomas Clavier <tom@tcweb.org>)
+  * Use logging to file, instead of syslog by default, add logrotate
+    script
+  * Handle MONIT_OPTS configuration variable in initscript to pass
+    command line arguments at startup, eg. -d 180 (Closes: #589895)
+  * Cleanup /etc/default/monit file (Closes: #612767)
+  * Rewrote initscript using lsb-helpers, add depends on lsb-base
+
+  [ Jeremiah C. Foster ]
+  * Minor typo correction for debian/copyright
+
+  [ Sergey B Kirpichev ]
+  * Create TODO.Debian file, add item
+  * Fix some spelling errors (added patch 06)
+  * Merge monitrc patches
+  * Drop patch/unpatch logic from debian/rules
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Mon, 14 Feb 2011 16:59:02 +0300
+
+monit (1:5.2.3-1) unstable; urgency=low
+
+  * New maintainer (Closes: #593941)
+  * change patch system: dpatch -> quilt
+  * Switch to dpkg-source 3.0 (quilt) format
+  * New upstream release (5.2.3)
+  * Include ${misc:Depends} in depends section of debian/control
+  * Bump up Standards-Version (to 3.9.1)
+  * Add lintian override for permissions of etc/monit/monitrc
+  * Bump up debhelper compatibility version (to 5)
+  * Declare versioned dependency on debhelper
+  * move direct source tree changes in monitrc to 03_monitrc.patch
+  * add Homepage header to debian/control
+  * minor fix for debian/copyright: refer to new maintainer, new
+    homepage and GPL-3
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Mon, 17 Jan 2011 16:12:19 +0300
+
+monit (1:5.2.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stefan Alfredsson <alfs@debian.org>  Sat, 25 Sep 2010 22:03:04 +0200
+
+monit (1:5.2-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stefan Alfredsson <alfs@debian.org>  Thu, 23 Sep 2010 22:47:48 +0200
+
+monit (1:5.1.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #573777)
+  * Added configurable statefile in /etc/default/monit (Closes: #569616)
+  * Verbose info when syntax errors are detected at start (Closes: #427922)
+  * Sample configuration adjustments (Closes: #427924)
+  * Removed pam_securityserver in pam config (Closes: #574120)
+  * An include-directory is supplied (Closes: #249933)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Fri, 19 Mar 2010 22:40:11 +0100
+
+monit (1:5.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Stefan Alfredsson <alfs@debian.org>  Sun, 21 Feb 2010 11:06:34 +0100
+
+monit (1:5.0.3-3) unstable; urgency=low
+
+  * Daemon poll interval moved to rc-file instead of defaults
+    (Closes: #541425)
+  * Package upgraded (Closes: 453248)
+  * Configuration snippets are included from /etc/monit/conf.d/*
+    (Closes: #296479)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Tue, 18 Aug 2009 22:49:13 +0200
+
+monit (1:5.0.3-2) unstable; urgency=low
+
+  * inet6 and getaddr() fix (Thanks to Michael Stapelberg!)
+    (Closes: #541139)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Wed, 12 Aug 2009 07:46:19 +0200
+
+monit (1:5.0.3-1) unstable; urgency=low
+
+  * New upstream release
+  * CPU-count fix in upstream release (Closes: #517816)
+  * Full eventqueue bug fixed in upstream release (Closes: #514709)
+  * Non-md5sum password bug fix by upstream (Closes: #474009)
+  * Uses unique message id's (Closes: #498346)
+  * Typo in "monit status" fixed (Closes: #506923)
+  * New format of debian watch file (Closes: #529128)
+  * Enabled PAM functionality
+
+ -- Stefan Alfredsson <alfs@debian.org>  Sat, 08 Aug 2009 10:21:37 +0200
+
+monit (1:4.10.1-4) unstable; urgency=low
+
+  * Patch for config file location was not applied (Closes: #479357)
+    (thanks to DVZ-Team <dv-zentrum@fh-giessen.de>)
+  * The relocation patch created an unneccessary "file.c.orig", this
+    was removed from the patch.
+
+ -- Stefan Alfredsson <alfs@debian.org>  Sun, 24 Aug 2008 23:44:46 +0000
+
+monit (1:4.10.1-3) unstable; urgency=low
+
+  * SSL enabled as upstream provided GPL/OpenSSL
+    license exception (Closes: #466821)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Fri, 22 Feb 2008 07:25:01 +0100
+
+monit (1:4.10.1-2) unstable; urgency=low
+
+  * Added build-dependency on dpatch (Closes: #463469)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Thu, 31 Jan 2008 22:22:59 +0100
+
+monit (1:4.10.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #453248)
+  * Upstream has fixed pid testing since v4.8 (Closes: #364844)
+  * Event queue segfault problem patched by upstream (Closes: #399027)
+  * HTTP segfault patched by upstream (Closes: #433164)
+  * Added LSB formatted dependency to init-script (Closes: #460299)
+  * Removed bashism echo -e in init-script (Closes: #411886)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Tue, 29 Jan 2008 21:36:33 +0100
+
+monit (1:4.9-1) unstable; urgency=low
+
+  * New upstream release
+  * Updated init-script to use printf instead of echo -e (Closes: #411886)
+  * Removed LFS patch because its integrated by upstream
+
+ -- Stefan Alfredsson <alfs@debian.org>  Wed, 25 Jul 2007 00:05:35 +0200
+
+monit (1:4.8.1-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * monit-lfs.patch: Add LFS support; patch adapted from upstream CVS by
+    Michael Mende. (Closes: #395164)
+  * Build-depend on automake and set some magical cdbs option to enable
+    re-automaking, as monit-lfs.patch touches configure.ac.
+
+ -- Steinar H. Gunderson <sesse@debian.org>  Mon, 13 Nov 2006 13:38:47 +0100
+
+monit (1:4.8.1-2) unstable; urgency=low
+
+  * Wait for daemon to stop before restart (Closes: #368700)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Wed, 24 May 2006 14:47:01 +0200
+
+monit (1:4.8.1-1) unstable; urgency=low
+
+  * New upstream release
+  * AMD64 bugfix integrated in upstream (Closes: #367341) -- however
+    there may be additional issues with starting scripts. Please open
+    a new bug if this is the case.
+
+ -- Stefan Alfredsson <alfs@debian.org>  Wed, 17 May 2006 23:50:46 +0200
+
+monit (1:4.8-2) unstable; urgency=low
+
+  * Applied patch for AMD64 bug (hopefully solving Bug#367341)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Tue, 16 May 2006 07:04:58 +0200
+
+monit (1:4.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #366860)
+  * Priority logging implemented by upstream (Closes: #353758)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Fri, 12 May 2006 07:30:58 +0200
+
+monit (1:4.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Applied NTP leap indicator patch (Closes: #352065) - should be
+    removed for next upstream release as they've embraced it.
+
+ -- Stefan Alfredsson <alfs@debian.org>  Mon, 27 Feb 2006 23:35:16 +0100
+
+monit (1:4.6-1) unstable; urgency=low
+
+  * New upstream release (Closes: #306259, #308369, #315638)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Fri, 11 Nov 2005 21:04:32 +0100
+
+monit (1:4.5-1) unstable; urgency=low
+
+  * New upstream release (Closes: #303100)
+  * File 'files.c' renamed, causing a patch to fail. Patch patched to
+    use the new name 'file.c'
+
+ -- Stefan Alfredsson <alfs@debian.org>  Tue,  5 Apr 2005 16:38:16 +0200
+
+monit (1:4.4-4) unstable; urgency=low
+
+  * Updated to new standards-version
+
+ -- Stefan Alfredsson <alfs@debian.org>  Sun, 27 Mar 2005 23:30:01 +0200
+
+monit (1:4.4-3) unstable; urgency=low
+
+  * Handles race condition for slow-to-start processes, see README.Debian
+    (Contributed by David Greaves <david@dgreaves.com>)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Mon, 14 Mar 2005 18:24:22 +0100
+
+monit (1:4.4-2) unstable; urgency=low
+
+  * Moved from priority extra to optional 
+  * Removed coreutils dependency since its part of base and required (and is
+    thus installed).
+  * Removed stat dependency alltogether, sets correct perms instead
+  * init-script now references $CONFIG instead of /etc/monit/monitrc in
+    various places.
+  * Now configures with --without-accurate-mem-calcs (Closes: #298045)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Tue,  1 Mar 2005 12:23:36 +0100
+
+monit (1:4.4-1) unstable; urgency=low
+
+  * New maintainer (Stefan Alfredsson, adoption agreed on IRC channel #kuf)
+  * New upstream release
+  * AMD64 compiles are fixed by upstream (please verify) (Closes: #287659)
+  * Added dependency on 'coreutils' because of stat-usage (Closes: #247226)
+  * Syntax checking from initscript, thanks to admin@cs.montana.edu
+    (Closes: #258148)
+  * Fixed spelling (Closes: #268530, #277252)
+  * buildd logs indicate good arm/ppc/s390 builds (Closes: #169439)
+
+ -- Stefan Alfredsson <alfs@debian.org>  Mon, 28 Feb 2005 12:26:38 +0100
+
+monit (1:4.2.1-2) unstable; urgency=low
+
+  * Changed defunct location of state file to /var/lib/monit (Closes:#231140)
+  * Removed old example monitrc
+  * Added examples from upstream
+  * Added README.SSL
+  * Added UPGRADE.txt
+  * Added doc/monit.html manual
+  * Changed /etc/monitrc references to /etc/monit/monitrc (Closes:#244646)
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 10 Aug 2004 12:39:29 +0200
+
+monit (1:4.2.1-1) unstable; urgency=high
+
+  * New upstream release with security fix (Closes:#242515)
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 13 Apr 2004 15:34:54 +0200
+
+monit (1:4.1.1-1) unstable; urgency=low
+
+  * New upstream release Closes:#222303
+  * Security update: There exists security vulnerabilites in the 4.0 version
+    of monit HTTP interface. This release fixes this.
+  * Some changes to init.d script to not exit with 1 when permissions
+    on monitrc is wrong. (breaks when removing the package)
+  * Fixed installation permissions on configuration file. Closes:#173348
+  * Added CHECK_INTERVAL configurable variable to /etc/default/monit
+  * This upload makes it easier to backport to woody because of change
+    of "stat" syntax. Closes:#198130
+
+ -- Fredrik Steen <stone@debian.org>  Wed, 26 Nov 2003 13:12:08 +0100
+
+monit (1:4.0-2) experimental; urgency=low
+
+  * Updated monit package to use cdbs 
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 21 Oct 2003 13:34:31 +0200
+
+monit (1:4.0-1) experimental; urgency=low
+
+  * New upstream release
+  * Patched original source for new location of monitrc (in
+    /etc/monit/monitrc)
+  * Added stat line in init.d script making it easier for backports of monit
+    to woody. (Closes:#198130)
+  * Now compiled with SSL-support (LICENSE now permits linking with OpenSSL)
+  * The startup is now denied via /etc/default/monit configuration. 
+
+ -- Fredrik Steen <stone@debian.org>  Wed, 24 Sep 2003 15:46:31 +0200
+
+monit (1:3.2-1) unstable; urgency=low
+
+  * New upstream release 
+  * Now changing permission on configfile when installing/configuring
+   - (Closes:#173348)
+  * This relase has a new license which grant linking with OpenSSL.
+    - Message-ID: <m2znmhrzzk.fsf@tildeslash.com>
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 22 Apr 2003 10:14:19 +0200
+
+monit (1:3.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Disabled beta SSL support. (Need to check the legal stuff)
+
+ -- Fredrik Steen <stone@debian.org>  Wed, 15 Jan 2003 10:26:12 +0100
+
+monit (1:3.0-2) unstable; urgency=low
+
+  * Check implemented in /etc/init.d/monit for checking permissions
+    on configfile /etc/monit/monitrc, Upstream will probably make all
+    error messages go to syslog and this is not needed anymore.
+    Unfortunately the startup messages of monit is too chatty
+    until that is fixed upstream the need to redirect stderr,stdout
+    to devnull from init-script is still needed. (Closes:#173348) 
+  * /etc/init.d/monit is now a conffile.
+  * No need for conffiles file when using debhelper 3 or greater.
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 17 Dec 2002 13:09:02 +0100
+
+monit (1:3.0-1) unstable; urgency=low
+
+  * New upstream release (Closes:#166058)
+  * Changed permission on configfile /etc/monit/monitrc
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 29 Oct 2002 16:09:44 +0100
+
+monit (1:2.5.1-3) unstable; urgency=low
+
+  * Fixes the old bug wich made monit start/stop to 
+    early/late (#158388)
+
+ -- Fredrik Steen <stone@debian.org>  Wed, 16 Oct 2002 12:14:21 +0200
+
+monit (1:2.5.1-2) unstable; urgency=low
+
+  * Fixed dumb package bug changed clean target config to do a
+    distclean instead of clean Closes:#159295
+  * Changed example monitrc
+
+ -- Fredrik Steen <stone@debian.org>  Mon,  2 Sep 2002 15:51:05 +0200
+
+monit (1:2.5.1-1) unstable; urgency=low
+
+  * New upstram release
+  * Upstream now do correct rfc 821 envelopes Closes:#153520  
+  * Controlfiles updated so monit will start late and stop early in the
+    init-process Closes:#158388, thanks to Mark Ferlatte.
+  * Updated Standards-Version.
+  * Fixed the "restart" target in monit init.d script.
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 27 Aug 2002 18:59:23 +0200
+
+monit (2.5-2) unstable; urgency=low
+
+  * Spelling error in init-script fixed.
+
+ -- Fredrik Steen <stone@debian.org>  Fri, 16 Aug 2002 15:05:40 +0200
+
+monit (2.5-1) unstable; urgency=low
+
+  * New upstream release
+  * TODO removed from upstream
+  * Spelling
+
+ -- Fredrik Steen <stone@debian.org>  Thu, 18 Jul 2002 18:05:15 +0200
+
+monit (2.4-1) unstable; urgency=low
+
+  * New upstream release
+  * FAQ changed to FAQ.txt upstream
+  * Upload to Debian Closes:#147642
+
+ -- Fredrik Steen <stone@debian.org>  Wed, 29 May 2002 09:04:50 +0200
+
+monit (2.3-2) unstable; urgency=low
+
+  * fixed /etc/init.d/monit
+  * Added example monitrc
+  * Addedd missing build-dep on flex and byacc
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 21 May 2002 13:48:18 +0200
+
+monit (2.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Fredrik Steen <stone@debian.org>  Tue, 21 May 2002 09:52:55 +0200
+

@@ -1,0 +1,78 @@
+Description: Set default $HOST to FQDN hostname
+Author: Sergey B Kirpichev <skirpichev@gmail.com>
+Bug-Debian: http://bugs.debian.org/613768
+Forwarded: https://savannah.nongnu.org/bugs/index.php?32868
+
+---
+ p.y    |    2 +-
+ util.c |   25 +++++++++++++++++++++++++
+ util.h |    7 +++++++
+ 3 files changed, 33 insertions(+), 1 deletion(-)
+
+--- a/p.y
++++ b/p.y
+@@ -1866,7 +1866,7 @@
+   /*
+    * Get the localhost name
+    */
+-  if (gethostname(localhost, sizeof(localhost)) < 0)
++  if (Util_getfqdnhostname(localhost, sizeof(localhost)) < 0)
+     snprintf(localhost, STRLEN, "%s", LOCALHOST);
+ 
+   /* Set instance incarnation ID */
+--- a/util.c
++++ b/util.c
+@@ -96,6 +96,10 @@
+ #include <crypt.h>
+ #endif
+ 
++#ifdef HAVE_NETDB_H
++#include <netdb.h>
++#endif
++
+ #ifdef HAVE_NETINET_IN_H
+ #include <netinet/in.h>
+ #endif
+@@ -2274,6 +2278,27 @@
+ }
+ 
+ 
++int Util_getfqdnhostname(char* buf, unsigned len) {
++  struct addrinfo hints, *info, *p;
++  char hostname[STRLEN];
++
++  if (gethostname(hostname, sizeof(hostname)) < 0)
++    return -1;
++
++  memset(&hints, 0, sizeof(hints));
++  hints.ai_family = AF_UNSPEC; /* either IPV4 or IPV6 */
++  hints.ai_socktype = SOCK_STREAM;
++  hints.ai_flags = AI_CANONNAME;
++
++  if (getaddrinfo(hostname, NULL, &hints, &info) != 0)
++    return -2;
++
++  strncpy(buf, info->ai_canonname, len);
++
++  return 0;
++}
++
++
+ /* ----------------------------------------------------------------- Private */
+ 
+ 
+--- a/util.h
++++ b/util.h
+@@ -513,5 +513,12 @@
+  */
+ void Util_stringbuffer(Buffer_T *b, const char *m, ...);
+ 
++/**
++ *  Returns the FQDN hostname or fallback to gethostname() output
++ *  @param buf the character array for hostname
++ *  @param len the number of bytes in buf
++ *  @return On success, zero is returned.  On error, -1 or -2.
++ */
++int Util_getfqdnhostname(char* buf, unsigned len);
+ 
+ #endif

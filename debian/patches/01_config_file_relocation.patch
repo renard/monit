@@ -1,0 +1,34 @@
+Description: Patched original source for new location of
+ monitrc (in /etc/monit/monitrc).
+Author: Fredrik Steen <stone@debian.org>
+Forwarded: not-needed
+
+---
+ file.c |    9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+--- a/file.c
++++ b/file.c
+@@ -184,6 +184,11 @@
+     return (rcfile);
+   }
+   memset(rcfile, 0, STRLEN);
++  snprintf(rcfile, STRLEN, "/etc/monit/%s", MONITRC);
++  if(File_exist(rcfile)) {
++    return (rcfile);
++  }
++  memset(rcfile, 0, STRLEN);
+   snprintf(rcfile, STRLEN, "/etc/%s", MONITRC);
+   if(File_exist(rcfile)) {
+     return (rcfile);
+@@ -204,8 +209,8 @@
+     return (rcfile);
+   }
+   LogError("%s: Cannot find the control file at "
+-      "~/.%s, /etc/%s, %s/%s, /usr/local/etc/%s or at ./%s \n",
+-      prog, MONITRC, MONITRC, SYSCONFDIR, MONITRC, MONITRC, MONITRC);
++       "~/.%s, /etc/monit/%s, /etc/%s, /usr/local/etc/%s or at ./%s \n",
++       prog, MONITRC, MONITRC, MONITRC, MONITRC, MONITRC);
+   exit(1);
+   
+ }

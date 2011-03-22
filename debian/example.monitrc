@@ -1,0 +1,20 @@
+# Example config for ssh
+check sshd with pidfile /var/run/sshd.pid
+        start = "/etc/init.d/ssh start"
+        stop = "/etc/init.d/ssh stop"
+        timeout(3, 3) and alert you@yourdomain.com
+        checksum /usr/sbin/sshd
+        and expect the sum a68ece0b46d2f42b655d0bf6434c317a
+
+# Example config for mysql
+check mysql with pidfile /var/run/mysqld/mysqld.pid
+        start program = "/etc/init.d/mysql start"
+        stop program = "/etc/init.d/mysql start"
+        port 3306
+        checksum start and stop
+        checksum /usr/sbin/mysqld
+        and expect the sum c020c32536b9d06a74ded321093853ff
+        alert you@yourdomain.com
+        autostart yes
+        group server
+        timeout if 2 restarts within 3 cycles

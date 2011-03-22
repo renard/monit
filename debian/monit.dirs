@@ -1,0 +1,3 @@
+etc/default
+etc/monit/conf.d
+var/lib/monit/events

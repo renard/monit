@@ -1,0 +1,23 @@
+
+For some slow-to-start processes monit can, especially at bootup, start 
+to monitor a process before it is fully initialised.
+This can cause monit to erroneously attempt a restart.
+To avoid this, you should have the process set to 'mode manual' in 
+monitrc and then create a script called monit_delay in /etc/monit/
+
+A typical /etc/monit/monit_delay looks like this:
+
+-------------------------------------------
+#!/bin/sh
+
+monit unmonitor slow_startup_process
+sleep 30
+monit monitor slow_startup_process
+-------------------------------------------
+
+Do not forget to set the executable flag on this file,
+chmod +x /etc/monit/monit_delay
+
+Note that you can just monitor the key process and any dependencies will 
+also be monitored.
+

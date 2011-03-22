@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	./autogen.sh
+	dh_auto_configure -- --bindir=/usr/sbin
+
+override_dh_auto_install:
+	dh_auto_install
+	cp monitrc debian/monit/etc/monit/monitrc
+
+override_dh_installinit:
+	dh_installinit -- "start 99 2 3 4 5 . stop 01 0 1 6 ."
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod 600 debian/monit/etc/monit/monitrc
+	chmod 0700 debian/monit/var/lib/monit/events
+

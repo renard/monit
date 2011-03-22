@@ -1,0 +1,4 @@
+* patch to use fqdn hostname in Message-Id header? // #613770
+* patch to use /usr/sbin/sendmail interface for sending alerts // #613532
+  - http://git.debian.org/?p=collab-maint/at.git;a=blob;f=atd.c#l510
+  - http://svn.debian.org/viewsvn/pkg-cron/trunk/
