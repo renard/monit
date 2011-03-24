@@ -1,0 +1,65 @@
+#!/bin/sh
+
+enabled="/etc/monit/svc-enabled"
+available="/etc/monit/svc-available"
+action=$(echo "`basename $0`" | sed -n 's/monit-\(enable\|disable\)/\1/p')
+
+function relative_path {
+    src="$1"
+    dst="$2"
+    local IFS='/'
+    RET=
+    set -- ${dst}
+    for elem in ${src}; do
+	case "$RET" in
+            "")
+		[ "$1" = "${elem}" ] || RET="../$1"
+		;;
+            *)
+		RET="$RET/$1"
+		;;
+	esac
+	shift
+    done
+}
+
+relative_path "${available}" "${enabled}"
+relative=${RET}
+
+function monit_reload {
+    if monit -t; then
+	killall -HUP monit
+    fi
+}
+
+
+function cmd_enable {
+    local need_reload=
+    for f in $*; do
+	if test -e ${available}/${f}; then
+	    ln -nfs ${relative}/${f} ${enabled}/${f}
+	    echo ${f}
+	    need_reload=1
+	else
+	    echo "${f} not found in ${available}"
+	fi
+    done
+    if test -n "${need_reload}"; then
+	monit_reload
+    fi
+}
+
+function cmd_disable {
+    local need_reload=
+    for f in $*; do
+	if test -L ${enabled}/${f}; then
+	    rm -f ${enabled}/${f}
+	    need_reload=1
+	fi
+    done
+    if test -n "${need_reload}"; then
+	monit_reload
+    fi
+}
+
+cmd_$action $*

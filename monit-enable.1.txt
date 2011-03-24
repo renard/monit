@@ -1,0 +1,39 @@
+= monit-enable(1) =
+
+== NAME ==
+
+monit-enable, monit-disable - enable or disable a monit configuration parts
+
+== SYNOPSIS ==
+
+monit-enable [ file ]
+
+monit-disable [ file ]
+
+== DESCRIPTION ==
+
+This manual page documents briefly the *monit-enable* and *monit-disable*
+commands.
+
+*monit-enable* is a script that enables the specified parts within the monit
+configuration. It does this by creating symlinks within
+/etc/monit/svc-enabled.
+
+Likewise, *monit-disable* disables parts by removing those symlinks. It is
+not an error to enable a part which is already enabled, or to disable one
+which is already disabled.
+
+== BUGS ==
+
+No time to include bugs, command actions might seldom lead astray user's
+assumption.
+
+== AUTHORS ==
+
+*monit-enable* and *monit-disable* are written by Sébastien Gross
+<seb•ɑƬ•chezwam•ɖɵʈ•org>.
+
+== COPYRIGHT ==
+
+Copyright © 2010 Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>.
+Relased under WTFPL (http://sam.zoy.org/wtfpl/COPYING[]).
