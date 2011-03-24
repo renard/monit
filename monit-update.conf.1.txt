@@ -1,0 +1,72 @@
+= monit-update.conf(1) =
+
+== NAME ==
+
+monit-update.conf, monit-update.conf.conf - update monit configuration parts
+
+
+== SYNOPSIS ==
+
+monit-update.conf
+
+== DESCRIPTION ==
+
+This manual page documents briefly the *monit-update.conf* command.
+
+*monit-update.conf* is a script that updates the specified parts within the
+monit configuration located in /etc/monit/svc-available.in.
+
+The update process creates a /etc/monit/svc-available directory by replacing
+macros from /etc/monit/svc-available.in according their definition in
+/etc/monit/update-monit.conf.conf.
+
+/etc/monit/update-monit.conf.conf is a shell sourced script. Any king of
+variable could be defined within it. Those variables would be expanded
+during the update process.
+
+A macro is defined within '@@'.
+
+== EXAMPLE ==
+
+If /etc/monit/update-monit.conf.conf contains:
+
+----
+ALERT_EMAIL="monit@example.com"
+----
+
+If /etc/monit/svc-available.in/emailrc contains:
+
+----
+set alert @@ALERT_EMAIL@@ with reminder on 10 cycles
+----
+
+The resulting file /etc/monit/svc-available/emailrc would contain:
+
+----
+set alert monit@example.com with reminder on 10 cycles
+----
+
+== FILES ==
+
+- /etc/monit/update-monit.conf.conf
+- /etc/monit/svc-available.in
+- /etc/monit/svc-available
+
+== SEE ALSO ==
+
+monit-enable(1), monit-disable(1).
+
+== BUGS ==
+
+No time to include bugs, command actions might seldom lead astray user's
+assumption.
+
+== AUTHORS ==
+
+*monit-update.conf* and is written by Sébastien Gross
+<seb•ɑƬ•chezwam•ɖɵʈ•org>.
+
+== COPYRIGHT ==
+
+Copyright © 2011 Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>.
+Relased under WTFPL (http://sam.zoy.org/wtfpl/COPYING[]).
