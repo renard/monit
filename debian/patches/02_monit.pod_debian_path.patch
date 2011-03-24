@@ -1,0 +1,43 @@
+diff --git a/monit.pod b/monit.pod
+index b10bc6b..3cf5f8e 100644
+--- a/monit.pod
++++ b/monit.pod
+@@ -207,7 +207,7 @@ usage, memory and load average.
+ 
+ Monit is configured and controlled via a control file called
+ B<monitrc>. The default location for this file is ~/.monitrc. If
+-this file does not exist, Monit will try /etc/monitrc, then
++this file does not exist, Monit will try /etc/monit/monitrc, then
+ S<@sysconfdir@>/monitrc and finally ./monitrc.
+ 
+ A Monit control file consists of a series of service entries and
+@@ -367,7 +367,7 @@ init' statement in monit's control file or use the -I option from
+ the command line and here is what you must add to /etc/inittab:
+ 
+   # Run Monit in standard run-levels
+-  mo:2345:respawn:/usr/local/bin/monit -Ic /etc/monitrc
++  mo:2345:respawn:/usr/sbin/monit -Ic /etc/monit/monitrc
+ 
+ After you have modified init's configuration file, you can run
+ the following command to re-examine /etc/inittab and start monit:
+@@ -1728,7 +1728,7 @@ statement. The rationale for this feature is security and that
+ Monit does not start a possible cracked program or script.
+ Example:
+ 
+- check file monit.bin with path "/usr/local/bin/monit"
++ check file monit.bin with path "/usr/sbin/monit"
+        if failed permission 0555 then unmonitor
+ 
+ If the test fails, Monit will simply send an alert and stop
+@@ -3707,9 +3707,9 @@ is not important.
+ F<~/.monitrc>  
+    Default run control file
+ 
+-F</etc/monitrc>
++F</etc/monit/monitrc>
+    If the control file is not found in the default 
+-   location and /etc contains a F<monitrc> file, this
++   location and /etc/monit/ contains a F<monitrc> file, this
+    file will be used instead.
+ 
+ F<./monitrc>  

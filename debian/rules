@@ -7,6 +7,10 @@ override_dh_auto_configure:
 	./autogen.sh
 	dh_auto_configure -- --bindir=/usr/sbin
 
+override_dh_auto_build:
+	dh_auto_build
+	pod2man monit.pod > monit.1
+
 override_dh_auto_install:
 	dh_auto_install
 	cp monitrc debian/monit/etc/monit/monitrc
@@ -18,4 +22,9 @@ override_dh_fixperms:
 	dh_fixperms
 	chmod 600 debian/monit/etc/monit/monitrc
 	chmod 0700 debian/monit/var/lib/monit/events
+
+override_dh_clean:
+	dh_clean
+	rm -fr aclocal.m4 config.h.in configure y.output monit.1 .pc \
+		debian/patches/debian-changes-*
 

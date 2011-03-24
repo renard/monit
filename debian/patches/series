@@ -1,5 +1,4 @@
 01_config_file_relocation.patch
-02_monit.1_debian_path.patch
+02_monit.pod_debian_path.patch
 05_monitrc.patch
-06_smtp_ehlo_fix.patch
 07_fqdn_in_HOST.patch
