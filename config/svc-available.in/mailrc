@@ -1,0 +1,21 @@
+# -*- conf -*-
+# Global mail configuration for monit
+
+set mailserver @@MAIL_HOSTS@@ port 25
+
+set mail-format {
+        from: @@ALERT_EMAIL@@
+        subject: [$HOST] $SERVICE $EVENT
+        message: At $DATE:
+
+- Host:        $HOST
+- Service:     $SERVICE
+- Event:       $EVENT
+- Action:      $ACTION
+- Description: $DESCRIPTION
+
+Monit:   http://@@HOST_ADMIN@@:2812/
+Service: http://@@HOST_ADMIN@@:2812/$SERVICE
+}
+
+set alert @@ALERT_EMAIL@@ with reminder on 10 cycles

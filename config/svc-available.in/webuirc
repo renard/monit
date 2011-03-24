@@ -1,0 +1,7 @@
+# -*- conf -*-
+# Web User Interface configration for monit
+
+set httpd port 2812 and and use the address @@HOST_ADMIN@@
+    allow 127.0.0.1
+    @@WEBUI_OTHER_ALLOW@@
+    allow @@WEBUI_USER_PASS@@

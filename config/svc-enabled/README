@@ -1,0 +1,2 @@
+# -*- conf -*-
+# Link here modules to be enabled using monit-enable(1).
