@@ -23,6 +23,17 @@ Likewise, *monit-disable* disables parts by removing those symlinks. It is
 not an error to enable a part which is already enabled, or to disable one
 which is already disabled.
 
+
+== FILES ==
+
+- /etc/monit/svc-available.in
+- /etc/monit/svc-available
+- /etc/monit/svc-enabled
+
+== SEE ALSO ==
+
+monit-update.conf(1), monit-update.conf.conf(1).
+
 == BUGS ==
 
 No time to include bugs, command actions might seldom lead astray user's

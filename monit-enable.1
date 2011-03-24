@@ -41,6 +41,43 @@ This manual page documents briefly the \fBmonit\-enable\fR and \fBmonit\-disable
 \fBmonit\-enable\fR is a script that enables the specified parts within the monit configuration\&. It does this by creating symlinks within /etc/monit/svc\-enabled\&.
 .sp
 Likewise, \fBmonit\-disable\fR disables parts by removing those symlinks\&. It is not an error to enable a part which is already enabled, or to disable one which is already disabled\&.
+.SH "FILES"
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+/etc/monit/svc\-available\&.in
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+/etc/monit/svc\-available
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+/etc/monit/svc\-enabled
+.RE
+.SH "SEE ALSO"
+.sp
+monit\-update\&.conf(1), monit\-update\&.conf\&.conf(1)\&.
 .SH "BUGS"
 .sp
 No time to include bugs, command actions might seldom lead astray user\(cqs assumption\&.
