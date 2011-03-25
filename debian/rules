@@ -13,7 +13,6 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	dh_auto_install
-	cp monitrc debian/monit/etc/monit/monitrc
 
 override_dh_installinit:
 	dh_installinit -- "start 99 2 3 4 5 . stop 01 0 1 6 ."
