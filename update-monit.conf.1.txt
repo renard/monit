@@ -1,19 +1,19 @@
-= monit-update.conf(1) =
+= update-monit.conf(1) =
 
 == NAME ==
 
-monit-update.conf, monit-update.conf.conf - update monit configuration parts
+update-monit.conf, update-monit.conf.conf - update monit configuration parts
 
 
 == SYNOPSIS ==
 
-monit-update.conf
+update-monit.conf
 
 == DESCRIPTION ==
 
-This manual page documents briefly the *monit-update.conf* command.
+This manual page documents briefly the *update-monit.conf* command.
 
-*monit-update.conf* is a script that updates the specified parts within the
+*update-monit.conf* is a script that updates the specified parts within the
 monit configuration located in /etc/monit/svc-available.in.
 
 The update process creates a /etc/monit/svc-available directory by replacing
@@ -63,7 +63,7 @@ assumption.
 
 == AUTHORS ==
 
-*monit-update.conf* and is written by Sébastien Gross
+*update-monit.conf* and is written by Sébastien Gross
 <seb•ɑƬ•chezwam•ɖɵʈ•org>.
 
 == COPYRIGHT ==
