@@ -1,5 +1,4 @@
 monit-update.conf		usr/sbin
-monit-disable			usr/sbin
 monit-enable			usr/sbin
 monit-update.conf.conf		etc/monit
 config/*			etc/monit
