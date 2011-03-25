@@ -1,5 +1,5 @@
 monit.1
-monit-update.conf.1
-monit-update.conf.conf.1
+update-monit.conf.1
+update-monit.conf.conf.1
 monit-disable.1
 monit-enable.1

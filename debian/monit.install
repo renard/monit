@@ -1,4 +1,4 @@
-monit-update.conf		usr/sbin
+update-monit.conf		usr/sbin
 monit-enable			usr/sbin
-monit-update.conf.conf		etc/monit
+update-monit.conf.conf		etc/monit
 config/*			etc/monit
