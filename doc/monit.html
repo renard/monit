@@ -4,7 +4,7 @@
 <head>
 <title>Monit - utility for monitoring services on a Unix system</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rev="made" href="mailto:martinpala@trilobite.local" />
+<link rev="made" href="mailto:root@localhost" />
 </head>
 
 <body style="background-color: white">
@@ -250,6 +250,11 @@ action and exit without transforming itself to a daemon.</p>
    Check all services listed in the control file. This 
    action is also the default behavior when Monit runs 
    in daemon mode.</p>
+<p><strong>procmatch regex</strong>
+   Allows for easy testing of pattern for process match
+   check. The command takes regular expression as an
+   argument and displays all running processes matching
+   the pattern.</p>
 <p>
 </p>
 <hr />
@@ -824,7 +829,6 @@ expanded into the text with these values:</p>
  --------------------
  ALERT    | &quot;alert&quot;
  EXEC     | &quot;exec&quot;
- MONITOR  | &quot;monitor&quot;
  RESTART  | &quot;restart&quot;
  START    | &quot;start&quot;
  STOP     | &quot;stop&quot;
@@ -1095,10 +1099,6 @@ started with superuser privileges unless the uid and gid
 extension was used.</p>
 </li>
 <li>
-<p><strong>MONITOR</strong> will enable monitoring of the service <em>and</em> send
-an alert.</p>
-</li>
-<li>
 <p><strong>UNMONITOR</strong> will disable monitoring of the service <em>and</em> send
 an alert. The service will not be checked by Monit anymore nor
 restarted again later.  To reactivate monitoring of the service
@@ -1119,7 +1119,7 @@ service restart action.</p>
 
 </dl>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>Example:</p>
 <pre>
  check file with path /cifs/mydata
@@ -1178,7 +1178,7 @@ CHILDREN). For CPU, TOTALCPU, MEMORY and TOTALMEMORY you need to
 specify a <em>unit</em>. This could be &quot;%&quot; or if applicable &quot;B&quot; (Byte),
 &quot;kB&quot; (1024 Byte), &quot;MB&quot; (1024 KiloByte) or &quot;GB&quot; (1024 MegaByte).</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>To calculate the cycles, a counter is raised whenever the
 expression above is true and it is lowered whenever it is false
 (but not below 0). All counters are reset in case of a restart.</p>
@@ -1225,7 +1225,7 @@ the file, but instead use the string you submit. For example:</p>
 <em>sha1sum(1)</em> to create a checksum string for a file and 
 use this string in the expect-statement.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The checksum statement in variable form may be used to check a
 file for changes and if changed, do a specified action. For
 instance to reload a server if its configuration file was
@@ -1270,7 +1270,7 @@ specified, default is EQUAL).</p>
 <p><em>unit</em> is either &quot;SECOND&quot;, &quot;MINUTE&quot;, &quot;HOUR&quot; or &quot;DAY&quot; (it is also
 possible to use &quot;SECONDS&quot;, &quot;MINUTES&quot;, &quot;HOURS&quot;, or &quot;DAYS&quot;).</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The variable timestamp statement is useful for checking a file
 for changes and then execute an action. This version was written
 particularly with configuration files in mind. For instance, if
@@ -1347,7 +1347,7 @@ specified, default is EQUAL).</p>
 &quot;byte&quot;, &quot;kilobyte&quot;, &quot;megabyte&quot;, &quot;gigabyte&quot;. If it is not
 specified, &quot;byte&quot; unit is assumed by default.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The variable size test form is useful for checking a file for
 changes and send an alert or execute an action. Monit will
 register the size of the file at startup and monitor the file for
@@ -1413,7 +1413,7 @@ See also <code>regex(7)</code>.</p>
 <p><em>path</em> is an absolute path to a file containing extended
 regular expression on every line. See also <code>regex(7)</code>.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>You can use the <em>NOT</em> statement to invert a match.</p>
 <p>The content is only being checked every cycle. If content is
 being added and removed between two checks they are unnoticed.</p>
@@ -1462,7 +1462,7 @@ NOSUID flags which should work on all platforms. Some platforms
 
 </dl>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>Example:</p>
 <pre>
  check filesystem rootfs with path /
@@ -1497,7 +1497,7 @@ default is EQUAL).</p>
 alternatives &quot;byte&quot;, &quot;kilobyte&quot;, &quot;megabyte&quot;, &quot;gigabyte&quot;,
 &quot;percent&quot;.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>
 </p>
 <h2><a name="inode_testing">INODE TESTING</a></h2>
@@ -1524,7 +1524,7 @@ default is EQUAL).</p>
 count of inodes. You can use the &quot;%&quot; character or the longer
 alternative &quot;percent&quot; as a unit.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>
 </p>
 <h2><a name="permission_testing">PERMISSION TESTING</a></h2>
@@ -1543,7 +1543,7 @@ filesystem as four octal digits (0-7). Valid range: 0000 - 7777 (you
 can omit the leading zeros, Monit will add the zeros to the left
 thus for example &quot;640&quot; is valid value and matches &quot;0640&quot;).</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The web interface will show a permission warning if the test
 failed.</p>
 <p>We recommend that you use the UNMONITOR action in a permission
@@ -1570,7 +1570,7 @@ filesystem service entry in the Monit control file.</p>
 </dl>
 <p><em>user</em> defines a user id either in numeric or in string form.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The web interface will show a uid warning if the test should
 fail.</p>
 <p>We recommend that you use the UNMONITOR action in a uid
@@ -1597,7 +1597,7 @@ filesystem service entry in the Monit control file.</p>
 </dl>
 <p><em>user</em> defines a group id either in numeric or in string form.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>The web interface will show a gid warning if the test should
 fail.</p>
 <p>We recommend that you use the UNMONITOR action in a gid
@@ -1622,7 +1622,7 @@ alert in the case of failure by default.</p>
 
 </dl>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>This test is useful to detect possible process restarts which has
 occurred in the timeframe between two Monit testing cycles. In
 the case that the restart was fast and the process provides
@@ -1652,7 +1652,7 @@ will send alert in the case of failure by default.</p>
 
 </dl>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>This test is useful for detecting changes of a process parent.</p>
 <p>Example:</p>
 <pre>
@@ -1882,7 +1882,7 @@ connect to the server within this time it will assume that the
 connection failed and execute the specified action. The default
 connect timeout is 5 seconds.</p>
 <p><em>action</em> is a choice of &quot;ALERT&quot;, &quot;RESTART&quot;, &quot;START&quot;, &quot;STOP&quot;,
-&quot;EXEC&quot;, &quot;MONITOR&quot; or &quot;UNMONITOR&quot;.</p>
+&quot;EXEC&quot; or &quot;UNMONITOR&quot;.</p>
 <p>
 </p>
 <h4><a name="connection_testing_using_the_url_notation">Connection testing using the URL notation</a></h4>
@@ -2595,11 +2595,13 @@ running process, Monit will call the entry's start method if
 defined.
 &lt;regex&gt; is alternative process specification using pattern matching
 to process name (command line) from process table instead of pidfile.
-The pattern to match can be obtained using 'ps' utility. The first
-match is used so this form of check is useful for unique pattern
-matching - the pidfile should be used where possible as it defines
-expected pid exactly (pattern matching won't be useful for Apache
-in most cases for example).
+The first match is used so this form of check is useful for unique
+pattern matching - the pidfile should be used where possible as it
+defines expected pid exactly (pattern matching won't be useful for
+Apache in most cases for example).
+The pattern can be obtained using <em>monit procmatch &quot;.*&quot;</em> CLI command
+which lists all processes visible to Monit or using the <em>ps</em> utility.
+The &quot;procmatch&quot; CLI command can be used to test your pattern as well.
 If Monit runs in passive mode or the start methods is not defined,
 Monit will just send alerts on errors.</p>
 </li>
@@ -2653,7 +2655,7 @@ tildeslash.com or &quot;64.87.72.95&quot;.</p>
 </li>
 <li><strong><a name="check_system_unique_name" class="item">CHECK SYSTEM &lt;unique name&gt;</a></strong>
 
-<p>The system name is usualy hostname, but any descriptive name can be
+<p>The system name is usually hostname, but any descriptive name can be
 used. This test allows to check general system resources such as
 CPU usage (percent of time spent in user, system and wait), total
 memory usage or load average.</p>
@@ -2956,7 +2958,7 @@ accepting connections at the port numbers. The method Monit use
 for a process restart is to first execute the stop-program, wait
 up to 30s for the process to stop and then execute the start-program
 and wait up to 30s for it to start. The length of start or stop
-timeout can be overriden using the 'timeout' option. If Monit was
+timeout can be overridden using the 'timeout' option. If Monit was
 unable to stop or start the service a failed alert message will
 be sent if you have requested alert messages to be sent.</p>
 <pre>
