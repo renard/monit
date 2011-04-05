@@ -40,7 +40,7 @@ MAN_OBJS="*.1"
 
 # Cleanup before build
 rm -f *.tar.gz
-${MAKE} distclean
+${MAKE} devclean
 clean_up
 
 # --------------------
