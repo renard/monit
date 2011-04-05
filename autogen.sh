@@ -38,7 +38,7 @@ if test -z "$*"; then
 fi
 
 echo "Running aclocal"
-aclocal -I m4
+aclocal
 echo "Running autoheader"
 autoheader
 echo "Running autoconf"

@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------------
 #
 # SYNOPSIS
-#     make {all|install|clean|uninstall|distclean|devclean}
+#     make {all|install|clean|uninstall|distclean}
 #
 # AUTHOR: 
 #     Jan-Henrik Haukeland, <hauk@tildeslash.com>
@@ -114,7 +114,7 @@ endef
 # -------
 # Targets
 # -------
-.PHONY: all clean install uninstall distclean devclean
+.PHONY: all clean install uninstall distclean
 
 all : $(PROG)
 
@@ -127,10 +127,7 @@ clean::
 # remove configure files
 distclean:: clean
 	$(RM) config.cache config.log config.status Makefile config.h \
-	autom4te*
-
-devclean:: clean distclean
-	$(RM) configure config.h.in aclocal.m4
+	autom4te* configure config.h.in aclocal.m4 y.output monit.1
 
 install:: $(PROG)
 	$(INSTALL_DIR) $(DESTDIR)$(BINDIR) $(check-exit)
