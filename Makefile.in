@@ -76,17 +76,14 @@ YACCFLAGS 	= -dvt -o y.tab.c
 GRAMMAR 	:= y.tab.c lex.yy.c
 
 # Filter out platform spesific files
-FILTER          := $(wildcard device/sysdep_*.c process/sysdep_*.c\
-                              external/*.c)
-
-EXTERNALS	:= @EXTERNALS@
+FILTER          := $(wildcard device/sysdep_*.c process/sysdep_*.c)
 
 # Source files
 SOURCE          := $(filter-out $(GRAMMAR) $(FILTER), \
                    $(wildcard *.c) $(wildcard */*.c)) \
                    device/sysdep_@ARCH@.c\
                    process/sysdep_@ARCH@.c\
-                   $(GRAMMAR) $(EXTERNALS)
+                   $(GRAMMAR)
 
 # Object files
 OBJECTS 	:= $(SOURCE:.c=.o) 

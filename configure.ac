@@ -319,16 +319,6 @@ AC_CHECK_FUNCS(syslog)
 AC_CHECK_FUNCS(vsyslog)
 AC_CHECK_FUNCS(backtrace)
 
-jm_FUNC_GNU_STRFTIME
-
-EXTERNALS=""
-if test "$jm_cv_func_working_gnu_strftime" = "no"; then
-	# We do not have have a working strftime supporting %z
-	EXTERNALS="$EXTERNALS external/strftime.c"
-fi
-
-AC_SUBST(EXTERNALS)
-
 # Check for SOL_IP
 AC_MSG_CHECKING(for SOL_IP)
 AC_TRY_COMPILE([
