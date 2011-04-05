@@ -20,3 +20,7 @@ autogen.sh
 autom4te*
 packages
 presentation.sxi
+doc
+contrib
+*.md5
+*.sha256
