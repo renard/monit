@@ -53,7 +53,6 @@ clean_up
 echo "Generating documentation"
 d=`date  '+%B %d. %Y'`
 pod2man --center "User Commands" --release "${d}" --date="www.mmonit.com" --lax monit.pod > monit.1
-pod2html monit.pod > doc/monit.html
 rm -f pod2*
 
 # Copy the specfile to allow direct rpmbuild -ta
