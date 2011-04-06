@@ -390,7 +390,7 @@ to this problem.
 =head1 INCLUDE FILES
 
 The Monit control file, I<monitrc>, can include additional
-configuration files. This feature helps to maintain a certain
+configuration files. This feature helps one to maintain a certain
 structure or to place repeating settings into one file. Include
 statements can be placed at virtually any spot. The syntax is the
 following:
@@ -881,7 +881,7 @@ optional statements in [brackets]):
                 [with TIMEOUT X SECONDS]
                 [using HOSTNAME hostname]
 
-The port statement allows to use SMTP servers other then those
+The port statement allows one to use SMTP servers other then those
 listening on port 25. If omitted, port 25 is used unless ssl or
 tls is used, in which case port 465 is used by default.
 
@@ -3016,7 +3016,7 @@ tildeslash.com or "64.87.72.95".
 =item 7. CHECK SYSTEM <unique name>
 
 The system name is usually hostname, but any descriptive name can be
-used. This test allows to check general system resources such as
+used. This test allows one to check general system resources such as
 CPU usage (percent of time spent in user, system and wait), total
 memory usage or load average.
 
