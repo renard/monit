@@ -319,10 +319,8 @@ ssl_server_connection *init_ssl_server(char *pemfile, char *clientpemfile) {
   if (FIPS_mode())
     server_method = TLSv1_server_method();
   else
-    server_method = SSLv23_server_method();
-#else
-  server_method = SSLv23_server_method();
 #endif
+    server_method = SSLv23_server_method();
   if (!(ssl_server->method = server_method)) {
     LogError("%s: Cannot initialize the SSL method -- %s\n", prog, SSLERROR);
     goto sslerror;
@@ -627,12 +625,9 @@ ssl_connection *new_ssl_connection(char *clientpemfile, int sslversion) {
 #ifdef OPENSSL_FIPS
     if (FIPS_mode()) {
       ssl->method = TLSv1_client_method();
-    } else {
+    } else
 #endif
       ssl->method = SSLv23_client_method();
-#ifdef OPENSSL_FIPS
-    }
-#endif
     break;
 
   case SSL_VERSION_SSLV2:
@@ -643,12 +638,9 @@ ssl_connection *new_ssl_connection(char *clientpemfile, int sslversion) {
     if (FIPS_mode()) {
       LogError("SSLv2 is not allowed in FIPS mode - use TLSv1");
       goto sslerror;
-    } else {
+    } else
 #endif
       ssl->method = SSLv2_client_method();
-#ifdef OPENSSL_FIPS
-    }
-#endif
     break;
 
   case SSL_VERSION_SSLV3:
@@ -656,12 +648,9 @@ ssl_connection *new_ssl_connection(char *clientpemfile, int sslversion) {
     if (FIPS_mode()) {
       LogError("SSLv3 is not allowed in FIPS mode - use TLSv1");
       goto sslerror;
-    } else {
+    } else
 #endif
       ssl->method = SSLv3_client_method();
-#ifdef OPENSSL_FIPS
-    }
-#endif
     break;
 
   case SSL_VERSION_TLS:
