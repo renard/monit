@@ -639,8 +639,9 @@ ssl_connection *new_ssl_connection(char *clientpemfile, int sslversion) {
       LogError("SSLv2 is not allowed in FIPS mode - use TLSv1");
       goto sslerror;
     } else
-#endif
+#else
       ssl->method = SSLv2_client_method();
+#endif
     break;
 
   case SSL_VERSION_SSLV3:
