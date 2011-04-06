@@ -636,7 +636,10 @@ ssl_connection *new_ssl_connection(char *clientpemfile, int sslversion) {
     break;
 
   case SSL_VERSION_SSLV2:
-#ifdef OPENSSL_FIPS
+#ifdef OPENSSL_NO_SSL2
+    LogError("SSLv2 is not allowed - use either SSLv3 or TLSv1");
+    goto sslerror;
+#elif defined(OPENSSL_FIPS)
     if (FIPS_mode()) {
       LogError("SSLv2 is not allowed in FIPS mode - use TLSv1");
       goto sslerror;

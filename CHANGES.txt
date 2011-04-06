@@ -9,6 +9,8 @@
 
 Version 5.2.6
 
+* Fix Debian bug #621047: monit fails to build after SSLv2 removal
+
 
 
 Version 5.2.5
