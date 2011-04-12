@@ -101,6 +101,7 @@ static unsigned maxslp;
 int init_process_info_sysdep(void) {
   int              mib[2];
   size_t           len;
+  int64_t          physmem;
   struct clockinfo clock;
 
   mib[0] = CTL_KERN;
@@ -120,13 +121,13 @@ int init_process_info_sysdep(void) {
     return FALSE;
   }
 
-  mib[1] = HW_PHYSMEM;
-  len    = sizeof(systeminfo.mem_kbyte_max);
-  if (sysctl(mib, 2, &systeminfo.mem_kbyte_max, &len, NULL, 0) == -1) {
+  mib[1] = HW_PHYSMEM64;
+  len    = sizeof(physmem);
+  if (sysctl(mib, 2, &physmem, &len, NULL, 0) == -1) {
     DEBUG("system statistic error -- cannot get real memory amount: %s\n", STRERROR);
     return FALSE;
   }
-  systeminfo.mem_kbyte_max /= 1024;
+  systeminfo.mem_kbyte_max = physmem / 1024;
 
   mib[1] = HW_PAGESIZE;
   len    = sizeof(pagesize_kbyte);
