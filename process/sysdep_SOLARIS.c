@@ -368,17 +368,23 @@ int used_system_cpu_sysdep(SystemInfo_T *si) {
     total    += (cpu_stat[i].cpu_sysinfo.cpu[0]+ cpu_stat[i].cpu_sysinfo.cpu[1]+ cpu_stat[i].cpu_sysinfo.cpu[2]+ cpu_stat[i].cpu_sysinfo.cpu[3]);
   }
 
-  if (old_total == 0.0 ) {
+  if (old_total == 0) {
     si->total_cpu_user_percent = -10;
     si->total_cpu_syst_percent = -10;
     si->total_cpu_wait_percent = -10;
   } else {
-    si->total_cpu_user_percent = (int)((1000 * (cpu_user - old_cpu_user)) / (total - old_total));
-    si->total_cpu_syst_percent = (int)((1000 * (cpu_syst - old_cpu_syst)) / (total - old_total));
-    si->total_cpu_wait_percent = (int)((1000 * (cpu_wait - old_cpu_wait)) / (total - old_total));
+    long diff_total = total - old_total;
+    if (diff_total) {
+      si->total_cpu_user_percent = (int)((1000 * (cpu_user - old_cpu_user)) / diff_total);
+      si->total_cpu_syst_percent = (int)((1000 * (cpu_syst - old_cpu_syst)) / diff_total);
+      si->total_cpu_wait_percent = (int)((1000 * (cpu_wait - old_cpu_wait)) / diff_total);
+    } else {
+      si->total_cpu_user_percent = 0;
+      si->total_cpu_syst_percent = 0;
+      si->total_cpu_wait_percent = 0;
+    }
   }
 
-  
   old_cpu_user = cpu_user;
   old_cpu_syst = cpu_syst;
   old_cpu_wait = cpu_wait;
