@@ -376,7 +376,7 @@ int used_system_cpu_sysdep(SystemInfo_T *si) {
 
   if (old_total == 0) {
     si->total_cpu_user_percent = si->total_cpu_syst_percent = si->total_cpu_wait_percent = -10;
-  } else if ((diff_total = total - old_total)) {
+  } else if ((diff_total = total - old_total) > 0) {
     si->total_cpu_user_percent = (int)((1000 * (cpu_user - old_cpu_user)) / diff_total);
     si->total_cpu_syst_percent = (int)((1000 * (cpu_syst - old_cpu_syst)) / diff_total);
     si->total_cpu_wait_percent = (int)((1000 * (cpu_wait - old_cpu_wait)) / diff_total);
