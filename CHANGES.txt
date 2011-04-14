@@ -11,7 +11,7 @@ Version 5.2.6
 
 * Fix Debian bug #621047: monit fails to build after SSLv2 removal
 
-* Fix crash on Solaris which may occur if the system shows zero load.
+* Fix crash on Solaris which may occur if the system load is zero.
   Thanks to Paul Sun for report.
 
 
