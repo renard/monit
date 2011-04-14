@@ -320,69 +320,66 @@ again:
  */
 int used_system_cpu_sysdep(SystemInfo_T *si) {
   int             i, ncpu = 0, ncpus;
-  long            cpu_user = 0, cpu_syst = 0, cpu_wait = 0;
-  long            total = 0;
+  long            cpu_user = 0, cpu_syst = 0, cpu_wait = 0, total = 0, diff_total;
   kstat_ctl_t    *kctl;  
   kstat_named_t  *knamed;
   kstat_t        *kstat;
   kstat_t       **cpu_ks;
   cpu_stat_t     *cpu_stat;
   
-  si->total_cpu_user_percent = 0;
-  si->total_cpu_syst_percent = 0;
-  si->total_cpu_wait_percent = 0;
+  si->total_cpu_user_percent = si->total_cpu_syst_percent = si->total_cpu_wait_percent = 0;
 
   kctl  = kstat_open();
   kstat = kstat_lookup(kctl, "unix", 0, "system_misc");
-  if (kstat_read(kctl, kstat, 0) == -1)
+  if (kstat_read(kctl, kstat, 0) == -1) {
+    LogError("system statistic -- failed to lookup unix::system_misc kstat\n");
     goto error;
+  }
   
-  if (NULL == (knamed = kstat_data_lookup(kstat, "ncpus")))
+  if (NULL == (knamed = kstat_data_lookup(kstat, "ncpus"))) {
+    LogError("system statistic -- ncpus kstat lookup failed\n");
     goto error;
+  }
   
-  ncpus = knamed->value.ui32;
+  if ((ncpus = knamed->value.ui32) == 0) {
+    LogError("system statistic -- ncpus is 0\n");
+    goto error;
+  }
 
   cpu_ks   = (kstat_t **)xmalloc(ncpus * sizeof(kstat_t *));
   cpu_stat = (cpu_stat_t *)xmalloc(ncpus * sizeof(cpu_stat_t));
 
   for (kstat = kctl->kc_chain; kstat; kstat = kstat->ks_next) {
     if (strncmp(kstat->ks_name, "cpu_stat", 8) == 0) {
-
-      if (-1 == kstat_read(kctl, kstat, NULL))
+      if (-1 == kstat_read(kctl, kstat, NULL)) {
+        LogError("system statistic -- failed to read cpu_stat kstat\n");
         goto error2;
-
+      }
       cpu_ks[ncpu] = kstat;
-      if (++ncpu > ncpus)
+      if (++ncpu > ncpus) {
+        LogError("system statistic -- cpu count mismatch\n");
         goto error2;
+      }
     }
   }
   
   for (i = 0; i < ncpu; i++) {
-
-    if (-1 == kstat_read(kctl, cpu_ks[i], &cpu_stat[i]))
+    if (-1 == kstat_read(kctl, cpu_ks[i], &cpu_stat[i])) {
+      LogError("system statistic -- failed to read cpu_stat kstat for cpu %d\n", i);
       goto error2;
-    
+    }
     cpu_user += cpu_stat[i].cpu_sysinfo.cpu[CPU_USER];
     cpu_syst += cpu_stat[i].cpu_sysinfo.cpu[CPU_KERNEL];
     cpu_wait += cpu_stat[i].cpu_sysinfo.cpu[CPU_WAIT];
-    total    += (cpu_stat[i].cpu_sysinfo.cpu[0]+ cpu_stat[i].cpu_sysinfo.cpu[1]+ cpu_stat[i].cpu_sysinfo.cpu[2]+ cpu_stat[i].cpu_sysinfo.cpu[3]);
+    total    += (cpu_stat[i].cpu_sysinfo.cpu[0] + cpu_stat[i].cpu_sysinfo.cpu[1] + cpu_stat[i].cpu_sysinfo.cpu[2] + cpu_stat[i].cpu_sysinfo.cpu[3]);
   }
 
   if (old_total == 0) {
-    si->total_cpu_user_percent = -10;
-    si->total_cpu_syst_percent = -10;
-    si->total_cpu_wait_percent = -10;
-  } else {
-    long diff_total = total - old_total;
-    if (diff_total) {
-      si->total_cpu_user_percent = (int)((1000 * (cpu_user - old_cpu_user)) / diff_total);
-      si->total_cpu_syst_percent = (int)((1000 * (cpu_syst - old_cpu_syst)) / diff_total);
-      si->total_cpu_wait_percent = (int)((1000 * (cpu_wait - old_cpu_wait)) / diff_total);
-    } else {
-      si->total_cpu_user_percent = 0;
-      si->total_cpu_syst_percent = 0;
-      si->total_cpu_wait_percent = 0;
-    }
+    si->total_cpu_user_percent = si->total_cpu_syst_percent = si->total_cpu_wait_percent = -10;
+  } else if ((diff_total = total - old_total)) {
+    si->total_cpu_user_percent = (int)((1000 * (cpu_user - old_cpu_user)) / diff_total);
+    si->total_cpu_syst_percent = (int)((1000 * (cpu_syst - old_cpu_syst)) / diff_total);
+    si->total_cpu_wait_percent = (int)((1000 * (cpu_wait - old_cpu_wait)) / diff_total);
   }
 
   old_cpu_user = cpu_user;
@@ -396,7 +393,7 @@ int used_system_cpu_sysdep(SystemInfo_T *si) {
   return TRUE;
  
   error2:
-  old_total=0;
+  old_total = 0;
   FREE(cpu_ks);
   FREE(cpu_stat);
 
