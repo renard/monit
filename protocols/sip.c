@@ -1,5 +1,7 @@
 /*
- * Copyright (C) 2011 Tildeslash Ltd. All rights reserved.
+* Copyright (C) 2011 Tildeslash Ltd. All rights reserved.
+* Copyright (C) 2009 Pierrick Grasland <pierrick.grasland@nexcom.fr>
+* Copyright (C) 2009 Bret McDanel, <trixter AT 0xdecafbad.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
