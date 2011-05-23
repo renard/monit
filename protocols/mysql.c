@@ -160,8 +160,8 @@ int check_mysql(Socket_T s) {
     }
 
     return TRUE;
-  } else if((buf[4] == 0xFF) && ((buf[5] == 0x15 && buf[6] == 0x04) || (buf[5] == 0xE3 && buf[6] == 0x04))) {
-    /* If access denied (1045) or server requires newer authentication protocol (1251), return success immediately */
+  } else if((buf[4] == 0xFF) && ((buf[5] == 0x15 && buf[6] == 0x04) || (buf[5] == 0xE3 && buf[6] == 0x04) || (buf[5] == 0x13 && buf[6] == 0x04))) {
+    /* If access denied (1045) or server requires newer authentication protocol (1251) or bad handshake (1043) return success immediately */
     return TRUE;
   }
 

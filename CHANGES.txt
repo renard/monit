@@ -9,6 +9,9 @@
 
 Version 5.2.6
 
+* Fix MySQL protocol test: MySQL 5.5.12 returns new error code in
+  the case of authentication failure.
+
 * Fix Debian bug #621047: monit fails to build after SSLv2 removal
 
 * Fix crash on Solaris which may occur if the system load is zero.
