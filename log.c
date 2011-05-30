@@ -433,7 +433,7 @@ static void log_backtrace() {
   void *callstack[128];
   char **strs;
 
-  if (Run.debug) {
+  if (Run.debug >= 2) {
     frames = backtrace(callstack, 128);
     strs = backtrace_symbols(callstack, frames);
     LogDebug("-------------------------------------------------------------------------------\n");

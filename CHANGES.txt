@@ -17,6 +17,10 @@ Version 5.2.6
 * Fix crash on Solaris which may occur if the system load is zero.
   Thanks to Paul Sun for report.
 
+* The stacktrace logging on error is disabled in -v (verbose) mode
+  as it was too verbose for common service debugging tasks, it can
+  be enabled using -vv option.
+
 
 
 Version 5.2.5

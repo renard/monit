@@ -641,7 +641,7 @@ static void handle_options(int argc, char **argv) {
         break;
 	
     case 'v':
-        Run.debug = TRUE;
+        Run.debug++;
         break;
 
     case 'H':
@@ -703,6 +703,7 @@ static void help() {
   printf(" -I            Do not run in background (needed for run from init)\n");
   printf(" -t            Run syntax check for the control file\n");
   printf(" -v            Verbose mode, work noisy (diagnostic output)\n");
+  printf(" -vv           Very verbose mode, same as -v plus log stacktrace on error\n");
   printf(" -H [filename] Print SHA1 and MD5 hashes of the file or of stdin if the\n");
   printf("               filename is omited; monit will exit afterwards\n");
   printf(" -V            Print version number and patchlevel\n");

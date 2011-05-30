@@ -75,6 +75,9 @@ B<-t>
 B<-v>
    Verbose mode, work noisy (diagnostic output)
 
+B<-vv>
+   Very verbose mode, same as -v plus log stacktrace on error
+
 B<-H> I<[filename]>
    Print MD5 and SHA1 hashes of the file or of stdin if the 
    filename is omitted; Monit will exit afterwards
