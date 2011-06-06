@@ -43,8 +43,9 @@
 # set statefile /var/.monit.state
 #
 ## Set the list of mail servers for alert delivery. Multiple servers may be 
-## specified using a comma separator. By default Monit uses port 25 - it is
-## possible to override this with the PORT option.
+## specified using a comma separator. If the first mail server fails, Monit 
+# will use the second mail server in the list and so on. By default Monit uses 
+# port 25 - it is possible to override this with the PORT option.
 #
 # set mailserver mail.bar.baz,               # primary mailserver
 #                backup.bar.baz port 10025,  # backup mailserver on port 10025
