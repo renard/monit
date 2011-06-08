@@ -2034,6 +2034,15 @@ int Util_getfqdnhostname(char *buf, unsigned len) {
 }
 
 
+long Util_usleep(long u) {
+        struct timeval tv;
+        tv.tv_sec = u / USEC_PER_SEC;
+        tv.tv_usec = u % USEC_PER_SEC;
+        select(0, 0, 0, 0, &tv);
+        return u;
+}
+
+
 /* ----------------------------------------------------------------- Private */
 
 

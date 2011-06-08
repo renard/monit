@@ -91,6 +91,11 @@
 #define TIMEFORMAT         "%Z %b %e %T"
 #define STRERROR            strerror(errno)
 #define STRLEN             256
+#ifndef USEC_PER_SEC
+#define USEC_PER_SEC       1000000L
+#endif
+#define USEC_PER_MSEC      1000L
+
 #define ARGMAX             64
 #define HTTP_CONTENT_MAX   (1024*1000)
 /* Set event queue directory mode: "drwx------" */

@@ -525,4 +525,13 @@ void Util_stringbuffer(Buffer_T *b, const char *m, ...);
 int Util_getfqdnhostname(char *buf, unsigned len);
 
 
+/**
+ * This method suspend the calling process or Thread for
+ * <code>u</code> micro seconds.
+ * @param u Micro seconds to sleep
+ * @return The number of micro seconds slept
+ */
+long Util_usleep(long u);
+
+
 #endif

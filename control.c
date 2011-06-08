@@ -467,7 +467,7 @@ static void wait_start(Service_T s) {
   while ((time(NULL) < timeout) && !Run.stopped) {
     if ((isrunning = Util_isProcessRunning(s, TRUE)))
       break;
-    sleep(1);
+      Util_usleep(5000);
   }
   
   if (! isrunning)
@@ -495,7 +495,7 @@ static int wait_stop(Service_T s) {
   while ((time(NULL) < timeout) && !Run.stopped) {
     if (! (isrunning = Util_isProcessRunning(s, TRUE)))
       break;
-    sleep(1);
+    Util_usleep(5000);
   }
 
   if (isrunning) {
