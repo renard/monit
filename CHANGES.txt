@@ -21,6 +21,9 @@ Version 5.2.6
   as it was too verbose for common service debugging tasks, it can
   be enabled using -vv option.
 
+* Improve how fast Monit check if a program was started or stopped.
+  Thanks to Michael Renner for patch. 
+
 
 
 Version 5.2.5
