@@ -813,7 +813,6 @@ static int do_connect(int s, const struct sockaddr *addr, socklen_t addrlen, int
   fds[0].fd = s;
   fds[0].events = POLLIN|POLLOUT;
   if (poll(fds, 1, timeout * 1000) == 0) {
-    close(s);
     errno = ETIMEDOUT;
     return -1;
   }
@@ -825,7 +824,6 @@ static int do_connect(int s, const struct sockaddr *addr, socklen_t addrlen, int
     return -1;
   }
   if (error) {
-    close(s);
     errno = error;
     return -1;
   }
