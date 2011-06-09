@@ -924,6 +924,7 @@ void  LogEmergency(const char *, ...);
 void  LogAlert(const char *, ...);
 void  LogCritical(const char *, ...);
 void  LogError(const char *, ...);
+void  vLogError(const char *s, va_list ap);
 void  LogWarning(const char *, ...);
 void  LogNotice(const char *, ...);
 void  LogInfo(const char *, ...);

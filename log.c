@@ -226,6 +226,20 @@ void LogError(const char *s, ...) {
  * Logging interface with priority support
  * @param s A formated (printf-style) string to log
  */
+void vLogError(const char *s, va_list ap) {
+  va_list ap_copy;
+  ASSERT(s);
+  va_copy(ap_copy, ap);
+  log_log(LOG_ERR, s, ap);
+  va_end(ap_copy);
+  log_backtrace();
+}
+
+
+/**
+ * Logging interface with priority support
+ * @param s A formated (printf-style) string to log
+ */
 void LogWarning(const char *s, ...) {
   va_list ap;
 

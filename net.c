@@ -799,7 +799,7 @@ double icmp_echo(const char *hostname, int timeout, int count) {
  * Do a non blocking connect, timeout if not connected within timeout seconds
  */
 static int do_connect(int s, const struct sockaddr *addr, socklen_t addrlen, int timeout) {
-  int error;
+  int error = 0;
   struct pollfd fds[1];
 
   switch (connect(s, addr, addrlen)) {
@@ -813,6 +813,7 @@ static int do_connect(int s, const struct sockaddr *addr, socklen_t addrlen, int
   fds[0].fd = s;
   fds[0].events = POLLIN|POLLOUT;
   if (poll(fds, 1, timeout * 1000) == 0) {
+    close(s);
     errno = ETIMEDOUT;
     return -1;
   }
@@ -824,6 +825,7 @@ static int do_connect(int s, const struct sockaddr *addr, socklen_t addrlen, int
     return -1;
   }
   if (error) {
+    close(s);
     errno = error;
     return -1;
   }
