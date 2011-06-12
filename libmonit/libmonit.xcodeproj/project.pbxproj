@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5274583B13A1009C00C422FE /* Bootstrap.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274581013A1009C00C422FE /* Bootstrap.c */; };
+		5274583C13A1009C00C422FE /* Bootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581113A1009C00C422FE /* Bootstrap.h */; };
+		5274583D13A1009C00C422FE /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581213A1009C00C422FE /* Config.h */; };
+		5274583E13A1009C00C422FE /* assert.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274581413A1009C00C422FE /* assert.c */; };
+		5274583F13A1009C00C422FE /* assert.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581513A1009C00C422FE /* assert.h */; };
+		5274584013A1009C00C422FE /* AssertException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581613A1009C00C422FE /* AssertException.h */; };
+		5274584113A1009C00C422FE /* Exception.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274581713A1009C00C422FE /* Exception.c */; };
+		5274584213A1009C00C422FE /* Exception.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581813A1009C00C422FE /* Exception.h */; };
+		5274584313A1009C00C422FE /* IOException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581913A1009C00C422FE /* IOException.h */; };
+		5274584413A1009C00C422FE /* MemoryException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581A13A1009C00C422FE /* MemoryException.h */; };
+		5274584513A1009C00C422FE /* NumberFormatException.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581B13A1009C00C422FE /* NumberFormatException.h */; };
+		5274584613A1009C00C422FE /* Dir.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274581D13A1009C00C422FE /* Dir.c */; };
+		5274584713A1009C00C422FE /* Dir.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274581E13A1009C00C422FE /* Dir.h */; };
+		5274584813A1009C00C422FE /* File.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274581F13A1009C00C422FE /* File.c */; };
+		5274584913A1009C00C422FE /* File.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582013A1009C00C422FE /* File.h */; };
+		5274584A13A1009C00C422FE /* InputStream.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582113A1009C00C422FE /* InputStream.c */; };
+		5274584B13A1009C00C422FE /* InputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582213A1009C00C422FE /* InputStream.h */; };
+		5274584C13A1009C00C422FE /* OutputStream.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582313A1009C00C422FE /* OutputStream.c */; };
+		5274584D13A1009C00C422FE /* OutputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582413A1009C00C422FE /* OutputStream.h */; };
+		5274584E13A1009C00C422FE /* Command.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582613A1009C00C422FE /* Command.c */; };
+		5274584F13A1009C00C422FE /* Command.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582713A1009C00C422FE /* Command.h */; };
+		5274585013A1009C00C422FE /* Mem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582813A1009C00C422FE /* Mem.c */; };
+		5274585113A1009C00C422FE /* Mem.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582913A1009C00C422FE /* Mem.h */; };
+		5274585213A1009C00C422FE /* Net.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582A13A1009C00C422FE /* Net.c */; };
+		5274585313A1009C00C422FE /* Net.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582B13A1009C00C422FE /* Net.h */; };
+		5274585413A1009C00C422FE /* Process.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582C13A1009C00C422FE /* Process.h */; };
+		5274585513A1009C00C422FE /* System.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274582D13A1009C00C422FE /* System.c */; };
+		5274585613A1009C00C422FE /* System.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274582E13A1009C00C422FE /* System.h */; };
+		5274585713A1009C00C422FE /* Atomic.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274583013A1009C00C422FE /* Atomic.h */; };
+		5274585813A1009C00C422FE /* Thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274583113A1009C00C422FE /* Thread.c */; };
+		5274585913A1009C00C422FE /* Thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274583213A1009C00C422FE /* Thread.h */; };
+		5274585A13A1009C00C422FE /* List.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274583413A1009C00C422FE /* List.c */; };
+		5274585B13A1009C00C422FE /* List.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274583513A1009C00C422FE /* List.h */; };
+		5274585C13A1009C00C422FE /* Str.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274583613A1009C00C422FE /* Str.c */; };
+		5274585D13A1009C00C422FE /* Str.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274583713A1009C00C422FE /* Str.h */; };
+		5274585E13A1009C00C422FE /* StringBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 5274583813A1009C00C422FE /* StringBuffer.c */; };
+		5274585F13A1009C00C422FE /* StringBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5274583913A1009C00C422FE /* StringBuffer.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		523F408213A40FD2008EE7B3 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		5274580B13A1009C00C422FE /* bootstrap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = bootstrap; sourceTree = "<group>"; };
+		5274580C13A1009C00C422FE /* configure.ac */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configure.ac; sourceTree = "<group>"; };
+		5274580D13A1009C00C422FE /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
+		5274580E13A1009C00C422FE /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		5274581013A1009C00C422FE /* Bootstrap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Bootstrap.c; sourceTree = "<group>"; };
+		5274581113A1009C00C422FE /* Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bootstrap.h; sourceTree = "<group>"; };
+		5274581213A1009C00C422FE /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		5274581413A1009C00C422FE /* assert.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = assert.c; sourceTree = "<group>"; };
+		5274581513A1009C00C422FE /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assert.h; sourceTree = "<group>"; };
+		5274581613A1009C00C422FE /* AssertException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssertException.h; sourceTree = "<group>"; };
+		5274581713A1009C00C422FE /* Exception.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Exception.c; sourceTree = "<group>"; };
+		5274581813A1009C00C422FE /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
+		5274581913A1009C00C422FE /* IOException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOException.h; sourceTree = "<group>"; };
+		5274581A13A1009C00C422FE /* MemoryException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryException.h; sourceTree = "<group>"; };
+		5274581B13A1009C00C422FE /* NumberFormatException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberFormatException.h; sourceTree = "<group>"; };
+		5274581D13A1009C00C422FE /* Dir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Dir.c; sourceTree = "<group>"; };
+		5274581E13A1009C00C422FE /* Dir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dir.h; sourceTree = "<group>"; };
+		5274581F13A1009C00C422FE /* File.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = File.c; sourceTree = "<group>"; };
+		5274582013A1009C00C422FE /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		5274582113A1009C00C422FE /* InputStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = InputStream.c; sourceTree = "<group>"; };
+		5274582213A1009C00C422FE /* InputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStream.h; sourceTree = "<group>"; };
+		5274582313A1009C00C422FE /* OutputStream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = OutputStream.c; sourceTree = "<group>"; };
+		5274582413A1009C00C422FE /* OutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputStream.h; sourceTree = "<group>"; };
+		5274582613A1009C00C422FE /* Command.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Command.c; sourceTree = "<group>"; };
+		5274582713A1009C00C422FE /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		5274582813A1009C00C422FE /* Mem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Mem.c; sourceTree = "<group>"; };
+		5274582913A1009C00C422FE /* Mem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mem.h; sourceTree = "<group>"; };
+		5274582A13A1009C00C422FE /* Net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Net.c; sourceTree = "<group>"; };
+		5274582B13A1009C00C422FE /* Net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net.h; sourceTree = "<group>"; };
+		5274582C13A1009C00C422FE /* Process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Process.h; sourceTree = "<group>"; };
+		5274582D13A1009C00C422FE /* System.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = System.c; sourceTree = "<group>"; };
+		5274582E13A1009C00C422FE /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		5274583013A1009C00C422FE /* Atomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atomic.h; sourceTree = "<group>"; };
+		5274583113A1009C00C422FE /* Thread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Thread.c; sourceTree = "<group>"; };
+		5274583213A1009C00C422FE /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		5274583413A1009C00C422FE /* List.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = List.c; sourceTree = "<group>"; };
+		5274583513A1009C00C422FE /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		5274583613A1009C00C422FE /* Str.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Str.c; sourceTree = "<group>"; };
+		5274583713A1009C00C422FE /* Str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Str.h; sourceTree = "<group>"; };
+		5274583813A1009C00C422FE /* StringBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = StringBuffer.c; sourceTree = "<group>"; };
+		5274583913A1009C00C422FE /* StringBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringBuffer.h; sourceTree = "<group>"; };
+		52A12C2B13A0FFAB00C6CEB7 /* libmonit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libmonit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52A12C2813A0FFAB00C6CEB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5274580F13A1009C00C422FE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				523F408213A40FD2008EE7B3 /* Makefile.am */,
+				5274581013A1009C00C422FE /* Bootstrap.c */,
+				5274581113A1009C00C422FE /* Bootstrap.h */,
+				5274581213A1009C00C422FE /* Config.h */,
+				5274581313A1009C00C422FE /* exceptions */,
+				5274581C13A1009C00C422FE /* io */,
+				5274582513A1009C00C422FE /* system */,
+				5274582F13A1009C00C422FE /* thread */,
+				5274583313A1009C00C422FE /* util */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		5274581313A1009C00C422FE /* exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				5274581413A1009C00C422FE /* assert.c */,
+				5274581513A1009C00C422FE /* assert.h */,
+				5274581613A1009C00C422FE /* AssertException.h */,
+				5274581713A1009C00C422FE /* Exception.c */,
+				5274581813A1009C00C422FE /* Exception.h */,
+				5274581913A1009C00C422FE /* IOException.h */,
+				5274581A13A1009C00C422FE /* MemoryException.h */,
+				5274581B13A1009C00C422FE /* NumberFormatException.h */,
+			);
+			path = exceptions;
+			sourceTree = "<group>";
+		};
+		5274581C13A1009C00C422FE /* io */ = {
+			isa = PBXGroup;
+			children = (
+				5274581D13A1009C00C422FE /* Dir.c */,
+				5274581E13A1009C00C422FE /* Dir.h */,
+				5274581F13A1009C00C422FE /* File.c */,
+				5274582013A1009C00C422FE /* File.h */,
+				5274582113A1009C00C422FE /* InputStream.c */,
+				5274582213A1009C00C422FE /* InputStream.h */,
+				5274582313A1009C00C422FE /* OutputStream.c */,
+				5274582413A1009C00C422FE /* OutputStream.h */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
+		5274582513A1009C00C422FE /* system */ = {
+			isa = PBXGroup;
+			children = (
+				5274582613A1009C00C422FE /* Command.c */,
+				5274582713A1009C00C422FE /* Command.h */,
+				5274582813A1009C00C422FE /* Mem.c */,
+				5274582913A1009C00C422FE /* Mem.h */,
+				5274582A13A1009C00C422FE /* Net.c */,
+				5274582B13A1009C00C422FE /* Net.h */,
+				5274582C13A1009C00C422FE /* Process.h */,
+				5274582D13A1009C00C422FE /* System.c */,
+				5274582E13A1009C00C422FE /* System.h */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		5274582F13A1009C00C422FE /* thread */ = {
+			isa = PBXGroup;
+			children = (
+				5274583013A1009C00C422FE /* Atomic.h */,
+				5274583113A1009C00C422FE /* Thread.c */,
+				5274583213A1009C00C422FE /* Thread.h */,
+			);
+			path = thread;
+			sourceTree = "<group>";
+		};
+		5274583313A1009C00C422FE /* util */ = {
+			isa = PBXGroup;
+			children = (
+				5274583413A1009C00C422FE /* List.c */,
+				5274583513A1009C00C422FE /* List.h */,
+				5274583613A1009C00C422FE /* Str.c */,
+				5274583713A1009C00C422FE /* Str.h */,
+				5274583813A1009C00C422FE /* StringBuffer.c */,
+				5274583913A1009C00C422FE /* StringBuffer.h */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		5274583A13A1009C00C422FE /* test */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		52A12C2013A0FFAB00C6CEB7 = {
+			isa = PBXGroup;
+			children = (
+				5274580B13A1009C00C422FE /* bootstrap */,
+				5274580C13A1009C00C422FE /* configure.ac */,
+				5274580D13A1009C00C422FE /* Makefile.am */,
+				5274580E13A1009C00C422FE /* README */,
+				5274580F13A1009C00C422FE /* src */,
+				5274583A13A1009C00C422FE /* test */,
+				52A12C2C13A0FFAB00C6CEB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52A12C2C13A0FFAB00C6CEB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52A12C2B13A0FFAB00C6CEB7 /* libmonit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		52A12C2913A0FFAB00C6CEB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5274583C13A1009C00C422FE /* Bootstrap.h in Headers */,
+				5274583D13A1009C00C422FE /* Config.h in Headers */,
+				5274583F13A1009C00C422FE /* assert.h in Headers */,
+				5274584013A1009C00C422FE /* AssertException.h in Headers */,
+				5274584213A1009C00C422FE /* Exception.h in Headers */,
+				5274584313A1009C00C422FE /* IOException.h in Headers */,
+				5274584413A1009C00C422FE /* MemoryException.h in Headers */,
+				5274584513A1009C00C422FE /* NumberFormatException.h in Headers */,
+				5274584713A1009C00C422FE /* Dir.h in Headers */,
+				5274584913A1009C00C422FE /* File.h in Headers */,
+				5274584B13A1009C00C422FE /* InputStream.h in Headers */,
+				5274584D13A1009C00C422FE /* OutputStream.h in Headers */,
+				5274584F13A1009C00C422FE /* Command.h in Headers */,
+				5274585113A1009C00C422FE /* Mem.h in Headers */,
+				5274585313A1009C00C422FE /* Net.h in Headers */,
+				5274585413A1009C00C422FE /* Process.h in Headers */,
+				5274585613A1009C00C422FE /* System.h in Headers */,
+				5274585713A1009C00C422FE /* Atomic.h in Headers */,
+				5274585913A1009C00C422FE /* Thread.h in Headers */,
+				5274585B13A1009C00C422FE /* List.h in Headers */,
+				5274585D13A1009C00C422FE /* Str.h in Headers */,
+				5274585F13A1009C00C422FE /* StringBuffer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		52A12C2A13A0FFAB00C6CEB7 /* libmonit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52A12C2F13A0FFAB00C6CEB7 /* Build configuration list for PBXNativeTarget "libmonit" */;
+			buildPhases = (
+				52A12C2713A0FFAB00C6CEB7 /* Sources */,
+				52A12C2813A0FFAB00C6CEB7 /* Frameworks */,
+				52A12C2913A0FFAB00C6CEB7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libmonit;
+			productName = monit;
+			productReference = 52A12C2B13A0FFAB00C6CEB7 /* libmonit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52A12C2213A0FFAB00C6CEB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Tildeslash Ltd.";
+			};
+			buildConfigurationList = 52A12C2513A0FFAB00C6CEB7 /* Build configuration list for PBXProject "libmonit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52A12C2013A0FFAB00C6CEB7;
+			productRefGroup = 52A12C2C13A0FFAB00C6CEB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52A12C2A13A0FFAB00C6CEB7 /* libmonit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52A12C2713A0FFAB00C6CEB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5274583B13A1009C00C422FE /* Bootstrap.c in Sources */,
+				5274583E13A1009C00C422FE /* assert.c in Sources */,
+				5274584113A1009C00C422FE /* Exception.c in Sources */,
+				5274584613A1009C00C422FE /* Dir.c in Sources */,
+				5274584813A1009C00C422FE /* File.c in Sources */,
+				5274584A13A1009C00C422FE /* InputStream.c in Sources */,
+				5274584C13A1009C00C422FE /* OutputStream.c in Sources */,
+				5274584E13A1009C00C422FE /* Command.c in Sources */,
+				5274585013A1009C00C422FE /* Mem.c in Sources */,
+				5274585213A1009C00C422FE /* Net.c in Sources */,
+				5274585513A1009C00C422FE /* System.c in Sources */,
+				5274585813A1009C00C422FE /* Thread.c in Sources */,
+				5274585A13A1009C00C422FE /* List.c in Sources */,
+				5274585C13A1009C00C422FE /* Str.c in Sources */,
+				5274585E13A1009C00C422FE /* StringBuffer.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52A12C2D13A0FFAB00C6CEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52A12C2E13A0FFAB00C6CEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52A12C3013A0FFAB00C6CEB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				HEADER_SEARCH_PATHS = (
+					$SRCROOT/src/,
+					$SRCROOT/src/exceptions,
+					$SRCROOT/src/thread,
+					$SRCROOT/src/io,
+					$SRCROOT/src/net,
+					$SRCROOT/src/util,
+				);
+				PRODUCT_NAME = monit;
+			};
+			name = Debug;
+		};
+		52A12C3113A0FFAB00C6CEB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				HEADER_SEARCH_PATHS = (
+					$SRCROOT/src/,
+					$SRCROOT/src/exceptions,
+					$SRCROOT/src/thread,
+					$SRCROOT/src/io,
+					$SRCROOT/src/net,
+					$SRCROOT/src/util,
+				);
+				PRODUCT_NAME = monit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52A12C2513A0FFAB00C6CEB7 /* Build configuration list for PBXProject "libmonit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A12C2D13A0FFAB00C6CEB7 /* Debug */,
+				52A12C2E13A0FFAB00C6CEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52A12C2F13A0FFAB00C6CEB7 /* Build configuration list for PBXNativeTarget "libmonit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52A12C3013A0FFAB00C6CEB7 /* Debug */,
+				52A12C3113A0FFAB00C6CEB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52A12C2213A0FFAB00C6CEB7 /* Project object */;
+}
