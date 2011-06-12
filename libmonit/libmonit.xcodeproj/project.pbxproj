@@ -47,7 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		523F408213A40FD2008EE7B3 /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
 		5274580B13A1009C00C422FE /* bootstrap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = bootstrap; sourceTree = "<group>"; };
 		5274580C13A1009C00C422FE /* configure.ac */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = configure.ac; sourceTree = "<group>"; };
 		5274580D13A1009C00C422FE /* Makefile.am */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.am; sourceTree = "<group>"; };
@@ -106,7 +105,6 @@
 		5274580F13A1009C00C422FE /* src */ = {
 			isa = PBXGroup;
 			children = (
-				523F408213A40FD2008EE7B3 /* Makefile.am */,
 				5274581013A1009C00C422FE /* Bootstrap.c */,
 				5274581113A1009C00C422FE /* Bootstrap.h */,
 				5274581213A1009C00C422FE /* Config.h */,
