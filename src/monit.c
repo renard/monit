@@ -76,10 +76,9 @@
 #include "state.h"
 #include "event.h"
 
+// libmonit
 #include "Bootstrap.h"
-#include "util/List.h"
-#include "exceptions/Exception.h"
-#include "exceptions/AssertException.h"
+
 
 /**
  *  DESCRIPTION
@@ -156,7 +155,7 @@ char sslnames[][STRLEN]      = {"auto", "v2", "v3", "tls"};
  */
 int main(int argc, char **argv) {
         Bootstrap();
-        Bootstrap_setAbortHandler(vLogError); // We let Monit continue even if libmonit throw an exception
+        Bootstrap_setAbortHandler(vLogError); // We let Monit continue even if libmonit should throw an exception
         Bootstrap_setErrorHandler(vLogError);
         
   setlocale(LC_ALL, "C");
