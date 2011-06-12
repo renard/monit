@@ -1,4 +1,4 @@
-# Copyright (C) 2000-2011 Tildeslash Ltd. All rights reserved.
+# Copyright (C) Tildeslash Ltd. All rights reserved.
 
 AC_PREREQ([2.53])
 
