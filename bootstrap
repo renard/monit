@@ -6,8 +6,6 @@
 glibtoolize -f 2>/dev/null || libtoolize -f
 if aclocal -I config && autoheader && automake --foreign --add-missing --copy && autoconf 
 then
-        cd libmonit || exit 1;
-        ./bootstrap || exit 1;
         echo "Success bootstrapping Monit" 
         exit 0;
 fi

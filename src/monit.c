@@ -76,9 +76,6 @@
 #include "state.h"
 #include "event.h"
 
-// libmonit
-#include "Bootstrap.h"
-
 
 /**
  *  DESCRIPTION
@@ -154,10 +151,6 @@ char sslnames[][STRLEN]      = {"auto", "v2", "v3", "tls"};
  * The Prime mover
  */
 int main(int argc, char **argv) {
-        Bootstrap();
-        Bootstrap_setAbortHandler(vLogError); // We let Monit continue even if libmonit should throw an exception
-        Bootstrap_setErrorHandler(vLogError);
-        
   setlocale(LC_ALL, "C");
   prog = Util_basename(argv[0]);
   init_env();

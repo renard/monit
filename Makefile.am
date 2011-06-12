@@ -3,9 +3,7 @@
 AUTOMAKE_OPTIONS = foreign no-dependencies subdir-objects
 ACLOCAL_AMFLAGS	 = -I m4
 
-EXTRA_DIST	= README AUTHORS CHANGES COPYING bootstrap doc src config monitrc contrib libmonit monit.1
-
-SUBDIRS		= libmonit
+EXTRA_DIST	= README AUTHORS CHANGES COPYING bootstrap doc src config monitrc contrib monit.1
 
 CC		= @CC@
 FLEX		= @FLEX@
@@ -18,7 +16,6 @@ POD2MANFLAGS	= @POD2MANFLAGS@
 AM_CPPFLAGS	= $(CPPFLAGS) $(EXTCPPFLAGS) -D@ARCH@ -DSYSCONFDIR="\"@sysconfdir@\""
 AM_LDFLAGS	= $(LDFLAGS) $(EXTLDFLAGS) -L./lib/
 INCLUDES	= -I./src -I./src/device -I./src/http -I./src/process -I./src/protocols 
-INCLUDES	+= -I./libmonit/src
 
 # The mmonit binary
 bin_PROGRAMS	= monit
@@ -87,7 +84,6 @@ monit_SOURCES	= src/y.tab.c \
 		  src/process/process_common.c \
 		  src/process/sysdep_@ARCH@.c
  
-monit_LDADD 	= libmonit/libmonit.la
 monit_LDFLAGS 	= -static $(EXTLDFLAGS)
 
 man_MANS 	= monit.1
