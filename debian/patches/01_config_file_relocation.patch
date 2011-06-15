@@ -1,15 +1,21 @@
-Description: Patched original source for new location of
- monitrc (in /etc/monit/monitrc).
-Author: Fredrik Steen <stone@debian.org>
-Forwarded: not-needed
+From c67ffd63df34a6004bc9526ee003a0ef58ce368e Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
+Date: Wed, 15 Jun 2011 08:17:48 +0000
+Subject: [PATCH 2/5] Applying 01_config_file_relocation.patch
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ---
  file.c |    9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ 1 files changed, 7 insertions(+), 2 deletions(-)
 
+diff --git a/file.c b/file.c
+index 0a2e01c..4007948 100644
 --- a/file.c
 +++ b/file.c
-@@ -184,6 +184,11 @@
+@@ -184,6 +184,11 @@ char *File_findControlFile() {
      return (rcfile);
    }
    memset(rcfile, 0, STRLEN);
@@ -21,7 +27,7 @@ Forwarded: not-needed
    snprintf(rcfile, STRLEN, "/etc/%s", MONITRC);
    if(File_exist(rcfile)) {
      return (rcfile);
-@@ -204,8 +209,8 @@
+@@ -204,8 +209,8 @@ char *File_findControlFile() {
      return (rcfile);
    }
    LogError("%s: Cannot find the control file at "
@@ -32,3 +38,6 @@ Forwarded: not-needed
    exit(1);
    
  }
+-- 
+1.7.2.3
+

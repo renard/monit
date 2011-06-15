@@ -1,8 +1,21 @@
+From 2d8aab2c7b76a34553430dfac502e59c63c64796 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
+Date: Wed, 15 Jun 2011 08:18:29 +0000
+Subject: [PATCH 3/5] Applying 02_monit.pod_debian_path.patch
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
+---
+ monit.pod |   10 +++++-----
+ 1 files changed, 5 insertions(+), 5 deletions(-)
+
 diff --git a/monit.pod b/monit.pod
-index b10bc6b..3cf5f8e 100644
+index b5f6469..7c3f9dd 100644
 --- a/monit.pod
 +++ b/monit.pod
-@@ -207,7 +207,7 @@ usage, memory and load average.
+@@ -210,7 +210,7 @@ usage, memory and load average.
  
  Monit is configured and controlled via a control file called
  B<monitrc>. The default location for this file is ~/.monitrc. If
@@ -11,7 +24,7 @@ index b10bc6b..3cf5f8e 100644
  S<@sysconfdir@>/monitrc and finally ./monitrc.
  
  A Monit control file consists of a series of service entries and
-@@ -367,7 +367,7 @@ init' statement in monit's control file or use the -I option from
+@@ -370,7 +370,7 @@ init' statement in monit's control file or use the -I option from
  the command line and here is what you must add to /etc/inittab:
  
    # Run Monit in standard run-levels
@@ -20,7 +33,7 @@ index b10bc6b..3cf5f8e 100644
  
  After you have modified init's configuration file, you can run
  the following command to re-examine /etc/inittab and start monit:
-@@ -1728,7 +1728,7 @@ statement. The rationale for this feature is security and that
+@@ -1731,7 +1731,7 @@ statement. The rationale for this feature is security and that
  Monit does not start a possible cracked program or script.
  Example:
  
@@ -29,7 +42,7 @@ index b10bc6b..3cf5f8e 100644
         if failed permission 0555 then unmonitor
  
  If the test fails, Monit will simply send an alert and stop
-@@ -3707,9 +3707,9 @@ is not important.
+@@ -3710,9 +3710,9 @@ is not important.
  F<~/.monitrc>  
     Default run control file
  
@@ -41,3 +54,6 @@ index b10bc6b..3cf5f8e 100644
     file will be used instead.
  
  F<./monitrc>  
+-- 
+1.7.2.3
+

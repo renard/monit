@@ -1,13 +1,18 @@
-Description: setup default minimal monitrc file to allow
- monit daemon start after install.
-Bug-Debian: http://bugs.debian.org/583132
-Author: Sergey B Kirpichev <skirpichev@gmail.com>
-Forwarded: not-needed
+From 75af25c5a6fab59e123aff0946377a726f8cfb24 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
+Date: Wed, 15 Jun 2011 08:19:11 +0000
+Subject: [PATCH 4/5] Applying 05_monitrc.patch
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ---
  monitrc |   15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ 1 files changed, 8 insertions(+), 7 deletions(-)
 
+diff --git a/monitrc b/monitrc
+index d2159ee..1f92918 100644
 --- a/monitrc
 +++ b/monitrc
 @@ -16,7 +16,7 @@
@@ -43,8 +48,8 @@ Forwarded: not-needed
 +  set statefile /var/lib/monit/state
  #
  ## Set the list of mail servers for alert delivery. Multiple servers may be 
- ## specified using a comma separator. By default Monit uses port 25 - it is
-@@ -58,9 +59,9 @@
+ ## specified using a comma separator. If the first mail server fails, Monit 
+@@ -59,9 +60,9 @@
  ## size using the SLOTS option (if omitted, the queue is limited by space 
  ## available in the back end filesystem).
  #
@@ -57,7 +62,7 @@ Forwarded: not-needed
  #
  #
  ## Send status and events to M/Monit (for more informations about M/Monit 
-@@ -243,6 +244,6 @@
+@@ -244,6 +245,6 @@
  ## It is possible to include additional configuration parts from other files or
  ## directories.
  #
@@ -65,3 +70,6 @@ Forwarded: not-needed
 +   include /etc/monit/conf.d/*
  #
  #
+-- 
+1.7.2.3
+

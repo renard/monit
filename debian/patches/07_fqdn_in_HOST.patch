@@ -1,28 +1,36 @@
-Description: Set default $HOST to FQDN hostname
-Author: Sergey B Kirpichev <skirpichev@gmail.com>
-Bug-Debian: http://bugs.debian.org/613768
-Forwarded: https://savannah.nongnu.org/bugs/index.php?32868
+From c2d6eb5419da9acdaa184b0a34476b6e2b3c8dfb Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
+Date: Wed, 15 Jun 2011 08:23:03 +0000
+Subject: [PATCH 5/5] Applying 07_fqdn_in_HOST.patch
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
 ---
  p.y    |    2 +-
  util.c |   25 +++++++++++++++++++++++++
  util.h |    7 +++++++
- 3 files changed, 33 insertions(+), 1 deletion(-)
+ 3 files changed, 33 insertions(+), 1 deletions(-)
 
+diff --git a/p.y b/p.y
+index 757bf50..eea3aaf 100644
 --- a/p.y
 +++ b/p.y
-@@ -1866,7 +1866,7 @@
+@@ -1866,7 +1866,7 @@ static void preparse() {
    /*
     * Get the localhost name
     */
--  if (gethostname(localhost, sizeof(localhost)) < 0)
+-  if (Util_getfqdnhostname(localhost, sizeof(localhost)))
 +  if (Util_getfqdnhostname(localhost, sizeof(localhost)) < 0)
      snprintf(localhost, STRLEN, "%s", LOCALHOST);
  
    /* Set instance incarnation ID */
+diff --git a/util.c b/util.c
+index 4f50e7b..d6ef9e0 100644
 --- a/util.c
 +++ b/util.c
-@@ -96,6 +96,10 @@
+@@ -100,6 +100,10 @@
  #include <crypt.h>
  #endif
  
@@ -33,7 +41,7 @@ Forwarded: https://savannah.nongnu.org/bugs/index.php?32868
  #ifdef HAVE_NETINET_IN_H
  #include <netinet/in.h>
  #endif
-@@ -2274,6 +2278,27 @@
+@@ -2043,6 +2047,27 @@ long Util_usleep(long u) {
  }
  
  
@@ -61,9 +69,11 @@ Forwarded: https://savannah.nongnu.org/bugs/index.php?32868
  /* ----------------------------------------------------------------- Private */
  
  
+diff --git a/util.h b/util.h
+index a6e7ba4..5e5fd15 100644
 --- a/util.h
 +++ b/util.h
-@@ -513,5 +513,12 @@
+@@ -515,6 +515,13 @@ char *Util_portDescription(Port_T p, char *buf, int bufsize);
   */
  void Util_stringbuffer(Buffer_T *b, const char *m, ...);
  
@@ -75,4 +85,8 @@ Forwarded: https://savannah.nongnu.org/bugs/index.php?32868
 + */
 +int Util_getfqdnhostname(char* buf, unsigned len);
  
- #endif
+ /**
+  *  Returns the FQDN hostname or fallback to gethostname() output
+-- 
+1.7.2.3
+
