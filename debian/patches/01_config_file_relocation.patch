@@ -10,7 +10,7 @@ index 46d2c65..c51c97b 100644
    }
    memset(rcfile, 0, STRLEN);
 +  snprintf(rcfile, STRLEN, "/etc/monit/%s", MONITRC);
-+  if(File_exist(rcfile)) {
++  if(file_exist(rcfile)) {
 +    return (rcfile);
 +  }
 +  memset(rcfile, 0, STRLEN);

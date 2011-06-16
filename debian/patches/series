@@ -3,3 +3,4 @@
 05_monitrc.patch
 07_fqdn_in_HOST.patch
 08_fix_yacc_in_Makefile.am.patch
+09_fix_http.patch
