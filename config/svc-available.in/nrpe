@@ -1,0 +1,6 @@
+check process nrpe with pidfile /var/run/ntpd.pid 
+  start program "/etc/init.d/nagios-nrpe-server start"
+  stop program "/etc/init.d/nagios-nrpe-server stop"
+  if failed host @@HOST_nrpe@@ port @@PORT_nrpe@@ then restart
+  if 5 restarts within 5 cycles then timeout
+

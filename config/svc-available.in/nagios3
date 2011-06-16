@@ -1,0 +1,9 @@
+check process nagios3 with pidfile /var/log/nagios3/nagios.lock 
+  start program = "/etc/init.d/nagios3 start"
+  stop program = "/etc/init.d/nagios3 stop"
+  depends on nagios3_log_file
+  if 5 restarts within 5 cycles then timeout
+
+check file nagios3_log_file with path /var/log/nagios3/nagios.log 
+  if timestamp > 60 minutes then alert
+

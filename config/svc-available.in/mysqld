@@ -1,0 +1,6 @@
+check process mysqld with pidfile /var/run/mysqld/mysqld.pid
+  start program = "/etc/init.d/mysql start"
+  stop program = "/etc/init.d/mysql stop"
+  if failed host @@HOST_mysqld@@ port @@PORT_mysqld@@ protocol mysql then restart
+  if 5 restarts within 5 cycles then timeout
+

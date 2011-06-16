@@ -1,0 +1,5 @@
+check process exim4 with pidfile /var/run/exim4/exim.pid
+  start program  "/etc/init.d/exim4 start"
+  stop program  "/etc/init.d/exim4 stop"
+  if failed host @@HOST_exim4@@ port @@PORT_exim4@@ protocol smtp then restart
+  if 5 restarts within 5 cycles then timeout

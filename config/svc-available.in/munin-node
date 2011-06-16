@@ -1,0 +1,6 @@
+check process munin-node with pidfile /var/run/munin/munin-node.pid
+  start program  "/etc/init.d/munin-node start"
+  stop program  "/etc/init.d/munin-node stop"
+  if failed host @@HOST_munin_node@@ port @@PORT_munin_node@@ then restart
+  if 5 restarts within 5 cycles then timeout
+

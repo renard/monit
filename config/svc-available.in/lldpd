@@ -1,0 +1,5 @@
+check process lldpd with pidfile /var/run/lldpd.pid 
+  start program  "/etc/init.d/lldpd start"
+  stop program  "/etc/init.d/lldpd stop"
+  if 5 restarts within 5 cycles then timeout
+

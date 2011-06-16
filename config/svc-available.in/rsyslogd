@@ -1,0 +1,9 @@
+check process rsyslogd with pidfile /var/run/rsyslogd.pid
+  start program = "/etc/init.d/rsyslog start"
+  stop program = "/etc/init.d/rsyslog stop"
+  depends on rsyslogd_file
+  if 5 restarts within 5 cycles then timeout
+
+check file rsyslogd_file with path /var/log/syslog
+  if timestamp > 60 minutes then alert
+
