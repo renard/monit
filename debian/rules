@@ -4,7 +4,7 @@
 	dh $@
 
 override_dh_auto_configure:
-	./autogen.sh
+	./bootstrap
 	dh_auto_configure -- --bindir=/usr/sbin
 
 override_dh_auto_build:
