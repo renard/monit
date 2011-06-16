@@ -9,7 +9,7 @@ override_dh_auto_configure:
 
 override_dh_auto_build:
 	dh_auto_build
-	pod2man monit.pod > monit.1
+	pod2man doc/monit.pod > monit.1
 
 override_dh_auto_install:
 	dh_auto_install
