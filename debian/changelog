@@ -1,3 +1,9 @@
+monit (5:5.2.6+git.39-5) unstable; urgency=low
+
+  * New automated build from: v5.2.6 - 56c3685
+
+ -- Sergey B Kirpichev <skirpichev@gmail.com>  Thu, 16 Jun 2011 21:23:34 +0000
+
 monit (5:5.2.6+git.39-4) unstable; urgency=low
 
   * New automated build from: v5.2.6 - 56c3685
