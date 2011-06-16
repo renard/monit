@@ -1,0 +1,13 @@
+diff --git a/src/http.c b/src/http.c
+index f6ae099..227b7df 100644
+--- a/src/http.c
++++ b/src/http.c
+@@ -56,7 +56,7 @@
+ #include <sys/wait.h>
+ #endif
+ 
+-#include "monitor.h"
++#include "monit.h"
+ #include "net.h"
+ #include "engine.h"
+ 
