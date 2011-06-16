@@ -1,20 +1,7 @@
-From 2d8aab2c7b76a34553430dfac502e59c63c64796 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
-Date: Wed, 15 Jun 2011 08:18:29 +0000
-Subject: [PATCH 3/5] Applying 02_monit.pod_debian_path.patch
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-
-Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
----
- monit.pod |   10 +++++-----
- 1 files changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/monit.pod b/monit.pod
+diff --git a/doc/monit.pod b/doc/monit.pod
 index b5f6469..7c3f9dd 100644
---- a/monit.pod
-+++ b/monit.pod
+--- a/doc/monit.pod
++++ b/doc/monit.pod
 @@ -210,7 +210,7 @@ usage, memory and load average.
  
  Monit is configured and controlled via a control file called
@@ -54,6 +41,3 @@ index b5f6469..7c3f9dd 100644
     file will be used instead.
  
  F<./monitrc>  
--- 
-1.7.2.3
-

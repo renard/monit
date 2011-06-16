@@ -1,34 +1,13 @@
-From 75af25c5a6fab59e123aff0946377a726f8cfb24 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?S=C3=A9bastien=20Gross?= <seb•ɑƬ•chezwam•ɖɵʈ•org>
-Date: Wed, 15 Jun 2011 08:19:11 +0000
-Subject: [PATCH 4/5] Applying 05_monitrc.patch
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-
-Signed-off-by: Sébastien Gross <seb•ɑƬ•chezwam•ɖɵʈ•org>
----
- monitrc |   15 ++++++++-------
- 1 files changed, 8 insertions(+), 7 deletions(-)
-
 diff --git a/monitrc b/monitrc
-index d2159ee..1f92918 100644
+index 7b31576..76bf691 100644
 --- a/monitrc
 +++ b/monitrc
-@@ -16,7 +16,7 @@
- ##
- ## Start Monit in the background (run as a daemon):
- #
--# set daemon  120           # check services at 2-minute intervals
-+  set daemon  120           # check services at 2-minute intervals
- #     with start delay 240  # optional: delay the first check by 4-minutes (by 
- #                           # default Monit check immediately after Monit start)
- #
-@@ -26,13 +26,14 @@
+@@ -25,14 +25,14 @@ set daemon  120             # check services at 2-minute intervals
+ ## omitted, Monit will use 'user' facility by default. If you want to log to 
  ## a standalone log file instead, specify the full path to the log file
  #
- # set logfile syslog facility log_daemon                       
-+  set logfile /var/log/monit.log
+-# set logfile syslog facility log_daemon                       
++set logfile /var/log/monit.log
  #
  #
  ### Set the location of the Monit id file which stores the unique id for the
@@ -36,40 +15,37 @@ index d2159ee..1f92918 100644
  ### default the file is placed in $HOME/.monit.id.
  #
 -# set idfile /var/.monit.id
-+  set idfile /var/lib/monit/id
++set idfile /var/lib/monit/id
  #
  ### Set the location of the Monit state file which saves monitoring states
  ### on each cycle. By default the file is placed in $HOME/.monit.state. If
-@@ -40,7 +41,7 @@
+@@ -40,7 +40,7 @@ set daemon  120             # check services at 2-minute intervals
  ### the monitoring state across reboots. If it is on temporary filesystem, the
  ### state will be lost on reboot which may be convenient in some situations.
  #
 -# set statefile /var/.monit.state
-+  set statefile /var/lib/monit/state
++set statefile /var/lib/monit/state
  #
  ## Set the list of mail servers for alert delivery. Multiple servers may be 
  ## specified using a comma separator. If the first mail server fails, Monit 
-@@ -59,9 +60,9 @@
+@@ -59,9 +59,9 @@ set daemon  120             # check services at 2-minute intervals
  ## size using the SLOTS option (if omitted, the queue is limited by space 
  ## available in the back end filesystem).
  #
 -# set eventqueue
 -#     basedir /var/monit  # set the base directory where events will be stored
 -#     slots 100           # optionally limit the queue size
-+  set eventqueue
-+      basedir /var/lib/monit/events # set the base directory where events will be stored
-+      slots 100                     # optionally limit the queue size
++set eventqueue
++    basedir /var/lib/monit/events # set the base directory where events will be stored
++    slots 100                     # optionally limit the queue size
  #
  #
  ## Send status and events to M/Monit (for more informations about M/Monit 
-@@ -244,6 +245,6 @@
+@@ -244,6 +244,6 @@ set httpd port 2812 and
  ## It is possible to include additional configuration parts from other files or
  ## directories.
  #
 -#  include /etc/monit.d/*
-+   include /etc/monit/conf.d/*
++include /etc/monit/conf.d/*
  #
  #
--- 
-1.7.2.3
-
