@@ -23,7 +23,7 @@ function relative_path {
     done
 }
 
-relative_path "${available}" "${enabled}"
+relative_path "${enabled}" "${available}"
 relative=${RET}
 
 function monit_reload {
