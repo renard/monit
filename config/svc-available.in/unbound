@@ -1,0 +1,5 @@
+check process unbound with pidfile /var/run/unbound.pid
+   start program = "/etc/init.d/unbound start"
+   stop program = "/etc/init.d/unbound stop"
+   if failed host @@HOST_unbound@@ port @@PORT_unbound@@ type udp protocol dns then restart
+   if 5 restarts within 5 cycles then timeout
