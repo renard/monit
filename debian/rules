@@ -24,4 +24,4 @@ override_dh_fixperms:
 
 override_dh_clean:
 	dh_clean
-	rm -fr aclocal.m4 config.h.in configure y.output monit.1 .pc
+	rm -fr Makefile.in aclocal.m4 src/config.h.in configure y.output monit.1 .pc config
