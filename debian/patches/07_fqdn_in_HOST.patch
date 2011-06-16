@@ -41,34 +41,6 @@ index 4f50e7b..d6ef9e0 100644
  #ifdef HAVE_NETINET_IN_H
  #include <netinet/in.h>
  #endif
-@@ -2043,6 +2047,27 @@ long Util_usleep(long u) {
- }
- 
- 
-+int Util_getfqdnhostname(char* buf, unsigned len) {
-+  struct addrinfo hints, *info, *p;
-+  char hostname[STRLEN];
-+
-+  if (gethostname(hostname, sizeof(hostname)) < 0)
-+    return -1;
-+
-+  memset(&hints, 0, sizeof(hints));
-+  hints.ai_family = AF_UNSPEC; /* either IPV4 or IPV6 */
-+  hints.ai_socktype = SOCK_STREAM;
-+  hints.ai_flags = AI_CANONNAME;
-+
-+  if (getaddrinfo(hostname, NULL, &hints, &info) != 0)
-+    return -2;
-+
-+  strncpy(buf, info->ai_canonname, len);
-+
-+  return 0;
-+}
-+
-+
- /* ----------------------------------------------------------------- Private */
- 
- 
 diff --git a/util.h b/util.h
 index a6e7ba4..5e5fd15 100644
 --- a/util.h
